@@ -14,7 +14,12 @@
     <div id="content">
       <div class="section class Wesabe">
   <h1 class="title">Class: Wesabe</h1>
-  <div class="section attributes">
+  <div class="section docstring">
+  <p>
+Provides an object-oriented interface to the Wesabe API.
+</p>
+
+</div><div class="section attributes">
   <h1>Attributes</h1>
 
   
@@ -74,6 +79,53 @@ Sets the attribute <tt>username</tt>.
   </tt>
 </div>
 
+</div><div class="section docstring">
+  <p>
+Initializes access to the Wesabe API with a certain user. All requests will
+be made in the context of this user.
+</p>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="param">
+  <h3>Parameters:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>String</tt>]</span>
+      
+      
+        <span class='name'>username</span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+The username of an active Wesabe user.
+</p>
+</span>
+    </dd>
+  
+    <dt>
+      
+        <span class='type'>[<tt>String</tt>]</span>
+      
+      
+        <span class='name'>password</span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+The password of an active Wesabe user.
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+
 </div><div class="section source">
   <span>[<a class="source_link" href="#">View source</a>]</span>
   <div class="source_code">
@@ -83,13 +135,13 @@ Sets the attribute <tt>username</tt>.
           <pre class="lines">
 
 
-10
-11
-12
-13</pre>
+19
+20
+21
+22</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 10</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 19</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='username identifier id'>username</span><span class='comma token'>,</span> <span class='password identifier id'>password</span><span class='rparen token'>)</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='username identifier id'>username</span> <span class='assign token'>=</span> <span class='username identifier id'>username</span>
@@ -115,7 +167,18 @@ Sets the attribute <tt>username</tt>.
         
       </th>
       <td class="docstring">
+        <p>
+Returns an account with the given id or <tt>nil</tt> if the account is not
+found.
+</p>
+
         
+          <p class='returns'>
+            Returns: 
+              <span class='return_types'>
+                 <tt><a title="Wesabe::Account" href="Wesabe/Account.html">Wesabe::Account</a></tt>
+              </span>
+          </p>
         
       </td>
     </tr>
@@ -127,7 +190,18 @@ Sets the attribute <tt>username</tt>.
         
       </th>
       <td class="docstring">
+        <p>
+Fetches the user&#8217;s accounts list from Wesabe or, if the list was
+already fetched, returns the cached result.
+</p>
+
         
+          <p class='returns'>
+            Returns: 
+              <span class='return_types'>
+                 <tt>Array&lt;<a title="Wesabe::Account" href="Wesabe/Account.html">Wesabe::Account</a>></tt>
+              </span>
+          </p>
         
       </td>
     </tr>
@@ -145,10 +219,65 @@ Sets the attribute <tt>username</tt>.
   <div class='section methodsignature'>
   <tt class='def'>
     <span class='visibility'>public</span>
-    <span class='return_types'></span>
+    <span class='return_types'><tt><a title="Wesabe::Account" href="Wesabe/Account.html">Wesabe::Account</a></tt></span>
     <span class='name'>account</span><span class='args'>(id)</span>
     <span class='block'></span>
   </tt>
+</div>
+
+</div><div class="section docstring">
+  <p>
+Returns an account with the given id or <tt>nil</tt> if the account is not
+found.
+</p>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="param">
+  <h3>Parameters:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>#to_s</tt>]</span>
+      
+      
+        <span class='name'>id</span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+Something whose <tt>to_s</tt> result matches the <tt>to_s</tt> result of
+the account id.
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+<div class="return">
+  <h3>Returns:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt><a title="Wesabe::Account" href="Wesabe/Account.html">Wesabe::Account</a></tt>, <tt>nil</tt>]</span>
+      
+      
+        <span class='name'></span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+The account whose user-scoped id is <tt>id</tt> or <tt>nil</tt> if there is
+no account with that <tt>id</tt>.
+</p>
+</span>
+    </dd>
+  
+  </dl>
 </div>
 
 </div><div class="section source">
@@ -160,15 +289,15 @@ Sets the attribute <tt>username</tt>.
           <pre class="lines">
 
 
-30
-31
-32</pre>
+52
+53
+54</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 30</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 52</span>
 
 <span class='def def kw'>def</span> <span class='account identifier id'>account</span><span class='lparen token'>(</span><span class='id identifier id'>id</span><span class='rparen token'>)</span>
-  <span class='accounts identifier id'>accounts</span><span class='dot token'>.</span><span class='find identifier id'>find</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='a identifier id'>a</span><span class='bitor op'>|</span> <span class='a identifier id'>a</span><span class='dot token'>.</span><span class='id identifier id'>id</span> <span class='eq op'>==</span> <span class='id identifier id'>id</span><span class='rbrace token'>}</span>
+  <span class='accounts identifier id'>accounts</span><span class='dot token'>.</span><span class='find identifier id'>find</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='a identifier id'>a</span><span class='bitor op'>|</span> <span class='a identifier id'>a</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span> <span class='eq op'>==</span> <span class='id identifier id'>id</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='rbrace token'>}</span>
 <span class='end end kw'>end</span>
 </pre>
         </td>
@@ -187,10 +316,41 @@ Sets the attribute <tt>username</tt>.
   <div class='section methodsignature'>
   <tt class='def'>
     <span class='visibility'>public</span>
-    <span class='return_types'></span>
+    <span class='return_types'><tt>Array&lt;<a title="Wesabe::Account" href="Wesabe/Account.html">Wesabe::Account</a>></tt></span>
     <span class='name'>accounts</span><span class='args'></span>
     <span class='block'></span>
   </tt>
+</div>
+
+</div><div class="section docstring">
+  <p>
+Fetches the user&#8217;s accounts list from Wesabe or, if the list was
+already fetched, returns the cached result.
+</p>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="return">
+  <h3>Returns:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>Array&lt;<a title="Wesabe::Account" href="Wesabe/Account.html">Wesabe::Account</a>></tt>]</span>
+      
+      
+        <span class='name'></span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+A list of the user&#8217;s active accounts.
+</p>
+</span>
+    </dd>
+  
+  </dl>
 </div>
 
 </div><div class="section source">
@@ -202,23 +362,23 @@ Sets the attribute <tt>username</tt>.
           <pre class="lines">
 
 
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28</pre>
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 15</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 29</span>
 
 <span class='def def kw'>def</span> <span class='accounts identifier id'>accounts</span>
   <span class='unless unless kw'>unless</span> <span class='@accounts ivar id'>@accounts</span>
