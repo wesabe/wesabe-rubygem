@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<accounts>
+  <account>
+    <id>1</id>
+    <guid>8b8b9b34455cdad497a31d7c32bc5f79f786cc7d6f66c30a0e7cce97abbc1fcc</guid>
+    <account-number>5000</account-number>
+    <name>American Express Card - Blue</name>
+    <financial-institution>
+      <id>us-003383</id>
+      <name>American Express Card</name>
+    </financial-institution>
+    <account-type>Credit Card</account-type>
+    <currency decimal_places="2" symbol="$" separator="." delimiter=",">USD</currency>
+    <current-balance type="float">-393.42</current-balance>
+    <last-uploaded-at type="datetime">2008-08-04T13:37:19Z</last-uploaded-at>
+    <txaction-count>208</txaction-count>
+    <oldest-txaction type="datetime">2007-01-01T07:00:00Z</oldest-txaction>
+    <newest-txaction type="datetime">2008-08-02T07:00:00Z</newest-txaction>
+  </account>
+  <account>
+    <id>2</id>
+    <guid>9ad67ac14dd178a457717c67c3a631dce2d6a1e092a322cb0c036adb4e688b68</guid>
+    <name>Cash Account</name>
+    <account-type>Cash</account-type>
+    <currency decimal_places="2" symbol="$" separator="." delimiter=",">USD</currency>
+    <txaction-count>23</txaction-count>
+    <oldest-txaction type="datetime">2008-02-19T05:41:41Z</oldest-txaction>
+    <newest-txaction type="datetime">2008-08-02T02:30:51Z</newest-txaction>
+  </account>
+  <account>
+    <id>3</id>
+    <guid>35dbd799f8fb038280a2d79a8ae5e38bdd13bc9baf20ac6dc8d56c0e01619c7c</guid>
+    <account-number>4595</account-number>
+    <name>ING DIRECT - Checking</name>
+    <financial-institution>
+      <id>us-003243</id>
+      <name>ING DIRECT</name>
+    </financial-institution>
+    <account-type>Checking</account-type>
+    <currency decimal_places="2" symbol="$" separator="." delimiter=",">USD</currency>
+    <current-balance type="float">658.78</current-balance>
+    <last-uploaded-at type="datetime">2008-08-04T13:37:29Z</last-uploaded-at>
+    <txaction-count>19</txaction-count>
+    <oldest-txaction type="datetime">2008-03-08T20:00:00Z</oldest-txaction>
+    <newest-txaction type="datetime">2008-08-01T19:00:00Z</newest-txaction>
+  </account>
+  <account>
+    <id>4</id>
+    <guid>7cb28536f7c56fc717ea0c968553aa3172d62e4c4985c54fe240c58ff4a0a71b</guid>
+    <account-number>0821</account-number>
+    <name>ING DIRECT - Savings</name>
+    <financial-institution>
+      <id>us-003243</id>
+      <name>ING DIRECT</name>
+    </financial-institution>
+    <account-type>Savings</account-type>
+    <currency decimal_places="2" symbol="$" separator="." delimiter=",">USD</currency>
+    <current-balance type="float">16544.03</current-balance>
+    <last-uploaded-at type="datetime">2008-08-04T13:37:29Z</last-uploaded-at>
+    <txaction-count>36</txaction-count>
+    <oldest-txaction type="datetime">2006-07-21T19:00:00Z</oldest-txaction>
+    <newest-txaction type="datetime">2008-07-31T19:00:00Z</newest-txaction>
+  </account>
+</accounts>

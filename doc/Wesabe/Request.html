@@ -1,0 +1,650 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Class: Wesabe::Request</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section class Wesabe_Request">
+  <h1 class="title">Class: Wesabe::Request</h1>
+  <div class="section attributes">
+  <h1>Attributes</h1>
+
+  
+    <div class="instance">
+      <h2>Instance Attributes</h2>
+      <table>
+      
+        <tr>
+          <th class="name">method</td>
+          <td class="readwrite">
+            [<span id='method-instance_method'>R</span>W] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+Returns the value of attribute <tt>method</tt>.
+</p>
+
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <th class="name">password</td>
+          <td class="readwrite">
+            [<span id='password-instance_method'>R</span>W] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+Returns the value of attribute <tt>password</tt>.
+</p>
+
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <th class="name">payload</td>
+          <td class="readwrite">
+            [<span id='payload-instance_method'>R</span>W] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+Returns the value of attribute <tt>payload</tt>.
+</p>
+
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <th class="name">proxy</td>
+          <td class="readwrite">
+            [<span id='proxy-instance_method'>R</span>W] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+Returns the value of attribute <tt>proxy</tt>.
+</p>
+
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <th class="name">url</td>
+          <td class="readwrite">
+            [<span id='url-instance_method'>R</span>W] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+Returns the value of attribute <tt>url</tt>.
+</p>
+
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <th class="name">username</td>
+          <td class="readwrite">
+            [<span id='username-instance_method'>R</span>W] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+Returns the value of attribute <tt>username</tt>.
+</p>
+
+            
+          </td>
+        </tr>
+      
+      </table>
+    </div>
+  
+</div><div class="section constants">
+  
+</div><div class="section constructor">
+<h1>Constructor Summary</h1>
+  <div id="initialize-instance_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>private</span>
+    <span class='return_types'></span>
+    <span class='name'>initialize</span><span class='args'>(options = Hash.new)</span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+6
+7
+8
+9
+10
+11
+12
+13</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/request.rb', line 6</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='assign token'>=</span><span class='Hash constant id'>Hash</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='rparen token'>)</span>
+  <span class='@url ivar id'>@url</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:url</span><span class='rbrack token'>]</span> <span class='or or kw'>or</span> <span class='raise identifier id'>raise</span> <span class='ArgumentError constant id'>ArgumentError</span><span class='comma token'>,</span> <span class='string val'>&quot;Missing option 'url'&quot;</span>
+  <span class='@username ivar id'>@username</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:username</span><span class='rbrack token'>]</span> <span class='or or kw'>or</span> <span class='raise identifier id'>raise</span> <span class='ArgumentError constant id'>ArgumentError</span><span class='comma token'>,</span> <span class='string val'>&quot;Missing option 'username'&quot;</span>
+  <span class='@password ivar id'>@password</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:password</span><span class='rbrack token'>]</span> <span class='or or kw'>or</span> <span class='raise identifier id'>raise</span> <span class='ArgumentError constant id'>ArgumentError</span><span class='comma token'>,</span> <span class='string val'>&quot;Missing option 'password'&quot;</span> 
+  <span class='@proxy ivar id'>@proxy</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:proxy</span><span class='rbrack token'>]</span>
+  <span class='@method ivar id'>@method</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:method</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='symbol val'>:get</span>
+  <span class='@payload ivar id'>@payload</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:payload</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+</div>  <div class="section visibilitygroup public">
+    <h1>Public Visibility</h1>
+      <div class="section methodsummary class public">
+    <h1>Public Class Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        <span class='name'><a title="ca_file" href="#ca_file-class_method">ca_file</a></span><span class='args'></span>
+        <span class='block'></span>
+        
+      </th>
+      <td class="docstring">
+        
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        <span class='name'><a title="execute" href="#execute-class_method">execute</a></span><span class='args'>(options = Hash.new)</span>
+        <span class='block'></span>
+        
+      </th>
+      <td class="docstring">
+        <p>
+Executes a request and returns the response.
+</p>
+
+        
+          <p class='returns'>
+            Returns: 
+              <span class='return_types'>
+                 <tt>Net::HTTPResponse</tt>
+              </span>
+          </p>
+        
+      </td>
+    </tr>
+  
+</table>
+  </div>
+  <div class="section methodsummary instance public">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        <span class='name'><a title="#execute" href="#execute-instance_method">#execute</a></span><span class='args'></span>
+        <span class='block'></span>
+        
+      </th>
+      <td class="docstring">
+        <p>
+Executes the request and returns the response.
+</p>
+
+        
+          <p class='returns'>
+            Returns: 
+              <span class='return_types'>
+                 <tt>String</tt>
+              </span>
+          </p>
+        
+      </td>
+    </tr>
+  
+</table>
+  </div>
+<div class="section methoddetails class public">
+  <h1>Public Class Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>ca_file</h3>
+</div><div id="ca_file-class_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'></span>
+    <span class='name'>ca_file</span><span class='args'></span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+115
+116
+117
+118
+119
+120
+121</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/request.rb', line 115</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='ca_file identifier id'>ca_file</span>
+  <span class='lbrack token'>[</span><span class='File constant id'>File</span><span class='dot token'>.</span><span class='expand_path identifier id'>expand_path</span><span class='lparen token'>(</span><span class='string val'>&quot;~/.wesabe&quot;</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='File constant id'>File</span><span class='dot token'>.</span><span class='dirname identifier id'>dirname</span><span class='lparen token'>(</span><span class='__FILE__ __file__ kw'>__FILE__</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='string val'>'..'</span><span class='rparen token'>)</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='dir identifier id'>dir</span><span class='bitor op'>|</span>
+    <span class='file identifier id'>file</span> <span class='assign token'>=</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='dir identifier id'>dir</span><span class='comma token'>,</span> <span class='string val'>&quot;cacert.pem&quot;</span><span class='rparen token'>)</span>
+    <span class='return return kw'>return</span> <span class='file identifier id'>file</span> <span class='if if_mod kw'>if</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='exist? fid id'>exist?</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+  <span class='raise identifier id'>raise</span> <span class='string val'>&quot;Unable to find a CA pem file to use for www.wesabe.com&quot;</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>execute</h3>
+</div><div id="execute-class_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'><tt>Net::HTTPResponse</tt></span>
+    <span class='name'>execute</span><span class='args'>(options = Hash.new)</span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section docstring">
+  <p>
+Executes a request and returns the response.
+</p>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="param">
+  <h3>Parameters:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>String</tt>]</span>
+      
+      
+        <span class='name'>options[:url]</span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+The url relative to &quot;https://www.wesabe.com&quot; to request
+(required).
+</p>
+</span>
+    </dd>
+  
+    <dt>
+      
+        <span class='type'>[<tt>String</tt>]</span>
+      
+      
+        <span class='name'>options[:username]</span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+The Wesabe username (required).
+</p>
+</span>
+    </dd>
+  
+    <dt>
+      
+        <span class='type'>[<tt>String</tt>]</span>
+      
+      
+        <span class='name'>options[:password]</span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+The Wesabe password (required).
+</p>
+</span>
+    </dd>
+  
+    <dt>
+      
+        <span class='type'>[<tt>String</tt>]</span>
+      
+      
+        <span class='name'>options[:proxy]</span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+The proxy url to use (optional).
+</p>
+</span>
+    </dd>
+  
+    <dt>
+      
+        <span class='type'>[<tt>String</tt>, <tt>Symbol</tt>]</span>
+      
+      
+        <span class='name'>options[:method]</span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+The HTTP method to use (defaults to <tt>:get</tt>).
+</p>
+</span>
+    </dd>
+  
+    <dt>
+      
+        <span class='type'>[<tt>String</tt>]</span>
+      
+      
+        <span class='name'>options[:payload]</span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+The post-body to use (defaults to an empty string).
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+<div class="return">
+  <h3>Returns:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>Net::HTTPResponse</tt>]</span>
+      
+      
+        <span class='name'></span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+The response object for the request just made.
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+<div class="raise">
+  <h3>Raises:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>EOFError</tt>]</span>
+      
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+If the connection with the server breaks.
+</p>
+</span>
+    </dd>
+  
+    <dt>
+      
+        <span class='type'>[<tt>Timeout::Error</tt>]</span>
+      
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+If the request takes too long.
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+111
+112
+113</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/request.rb', line 111</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='execute identifier id'>execute</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='assign token'>=</span><span class='Hash constant id'>Hash</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='rparen token'>)</span>
+  <span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='execute identifier id'>execute</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div><div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>execute</h3>
+</div><div id="execute-instance_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'><tt>String</tt></span>
+    <span class='name'>execute</span><span class='args'></span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section docstring">
+  <p>
+Executes the request and returns the response.
+</p>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="return">
+  <h3>Returns:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>String</tt>]</span>
+      
+      
+        <span class='name'></span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+The response object for the request just made.
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+<div class="raise">
+  <h3>Raises:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>Wesabe::ServerConnectionBroken</tt>]</span>
+      
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+If the connection with the server breaks.
+</p>
+</span>
+    </dd>
+  
+    <dt>
+      
+        <span class='type'>[<tt>Timeout::Error</tt>]</span>
+      
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+If the request takes too long.
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/request.rb', line 68</span>
+
+<span class='def def kw'>def</span> <span class='execute identifier id'>execute</span>
+  <span class='comment val'># set up the uri</span>
+  <span class='uri identifier id'>uri</span> <span class='assign token'>=</span> <span class='URI constant id'>URI</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>&quot;https://www.wesabe.com&quot;</span><span class='comma token'>,</span> <span class='url identifier id'>url</span><span class='rparen token'>)</span>
+  <span class='@username ivar id'>@username</span> <span class='assign token'>=</span> <span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='user identifier id'>user</span> <span class='if if_mod kw'>if</span> <span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='user identifier id'>user</span>
+  <span class='@password ivar id'>@password</span> <span class='assign token'>=</span> <span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='password identifier id'>password</span> <span class='if if_mod kw'>if</span> <span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='password identifier id'>password</span>
+  
+  <span class='comment val'># set up the request</span>
+  <span class='req identifier id'>req</span> <span class='assign token'>=</span> <span class='Net constant id'>Net</span><span class='colon2 op'>::</span><span class='HTTP constant id'>HTTP</span><span class='dot token'>.</span><span class='const_get identifier id'>const_get</span><span class='lparen token'>(</span><span class='method identifier id'>method</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='capitalize identifier id'>capitalize</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='request_uri identifier id'>request_uri</span><span class='rparen token'>)</span>
+  <span class='req identifier id'>req</span><span class='dot token'>.</span><span class='basic_auth identifier id'>basic_auth</span><span class='lparen token'>(</span><span class='username identifier id'>username</span><span class='comma token'>,</span> <span class='password identifier id'>password</span><span class='rparen token'>)</span>
+  
+  <span class='net identifier id'>net</span><span class='dot token'>.</span><span class='start identifier id'>start</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='http identifier id'>http</span><span class='bitor op'>|</span>
+    <span class='process_response identifier id'>process_response</span> <span class='http identifier id'>http</span><span class='dot token'>.</span><span class='request identifier id'>request</span><span class='lparen token'>(</span><span class='req identifier id'>req</span><span class='comma token'>,</span> <span class='payload identifier id'>payload</span> <span class='orop op'>||</span> <span class='string val'>&quot;&quot;</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div>
+  </div>
+
+</div>
+    </div>
+  </body>
+</html>
