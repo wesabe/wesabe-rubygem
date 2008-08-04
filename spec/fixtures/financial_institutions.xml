@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<financial-insts>
+  <financial-inst>
+    <name>American Express Card</name>
+    <login-url>https://www99.americanexpress.com/myca/ofxdl/us/action?request_type=authreg_ofxdownload&amp;Face=en_US</login-url>
+    <homepage-url>http://www.americanexpress.com</homepage-url>
+    <wesabe-id>us-003383</wesabe-id>
+    <connection-type>Automatic</connection-type>
+  </financial-inst>
+  <financial-inst>
+    <name>ING DIRECT</name>
+    <login-url>https://secure.ingdirect.com/myaccount/</login-url>
+    <homepage-url>http://www.ingdirect.com/</homepage-url>
+    <wesabe-id>us-003243</wesabe-id>
+    <connection-type>Manual</connection-type>
+  </financial-inst>
+</financial-insts>

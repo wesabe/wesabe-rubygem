@@ -7,6 +7,8 @@ class Wesabe::Account
   attr_accessor :balance
   # This account's currency.
   attr_accessor :currency
+  # The financial institution this account is held at.
+  attr_accessor :financial_institution
   
   # Initializes a +Wesabe::Account+ and yields itself.
   # 
@@ -30,6 +32,8 @@ class Wesabe::Account
       balance = xml.elements["current-balance"]
       account.balance = balance.text.to_f if balance
       account.currency = Wesabe::Currency.from_xml(xml.elements["currency"])
+      fi = xml.elements["financial-institution"]
+      account.financial_institution = Wesabe::FinancialInstitution.from_xml(fi) if fi
     end
   end
 end

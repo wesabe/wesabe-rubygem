@@ -57,3 +57,5 @@ end
 require 'wesabe/request'
 require 'wesabe/account'
 require 'wesabe/currency'
+require 'wesabe/credential'
+require 'wesabe/financial_institution'
