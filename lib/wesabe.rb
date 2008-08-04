@@ -27,18 +27,7 @@ class Wesabe
   # @return [Array<Wesabe::Account>]
   #   A list of the user's active accounts.
   def accounts
-    unless @accounts
-      @accounts = []
-      accounts = Request.execute(
-                  :url => '/accounts.xml', 
-                  :username => username, 
-                  :password => password)
-      REXML::Document.new(accounts).root.each_element("//account") do |element|
-        @accounts << Account.from_xml(element)
-      end
-    end
-    
-    return @accounts
+    @accounts ||= load_accounts
   end
   
   # Returns an account with the given id or +nil+ if the account is not found.
@@ -51,6 +40,25 @@ class Wesabe
   #   with that +id+.
   def account(id)
     accounts.find {|a| a.id.to_s == id.to_s}
+  end
+  
+  private
+  
+  def load_accounts
+    process_accounts(
+      REXML::Document.new(
+        Request.execute(
+          :url => '/accounts.xml', 
+          :username => username, 
+          :password => password)))
+  end
+  
+  def process_accounts(xml)
+    accounts = []
+    xml.root.each_element("//account") do |element|
+      accounts << Account.from_xml(element)
+    end
+    accounts
   end
 end
 
