@@ -32,7 +32,6 @@ end
 class Default < Thor
   # Set up standard Thortasks
   spec_task(Dir["spec/**/*_spec.rb"])
-  spec_task(Dir["lib/*.rb"] + Dir["lib/**/*.rb"], :name => "yardoc")
   install_task SPEC
   
   desc "make_spec", "make a gemspec file"
