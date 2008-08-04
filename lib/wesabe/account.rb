@@ -1,7 +1,7 @@
 class Wesabe::Account
   # The user-scoped account id, used to identify the account in URLs.
   attr_accessor :id
-  # The user-provided account name (e.g. "Bank of America - Checking")
+  # The user-provided account name ("Bank of America - Checking")
   attr_accessor :name
   # This account's balance or +nil+ if the account is a cash account.
   attr_accessor :balance

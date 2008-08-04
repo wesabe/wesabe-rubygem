@@ -42,9 +42,15 @@ class Default < Thor
   end
   
   desc "doc", "Generates the documentation for this project"
-  def doc
+  method_options :open => :boolean
+  def doc(options={})
     `yardoc 'lib/**/*.rb' 2>/dev/null`
-    `open doc/index.html 2>/dev/null`
+    `open doc/index.html 2>/dev/null` if options[:open]
+  end
+  
+  desc "release", "Performs all the steps necessary for a release"
+  def release
+    doc; spec; package
   end
 end
 

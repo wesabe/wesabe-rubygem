@@ -24,11 +24,17 @@ class Wesabe::Request
       http_klass = Net::HTTP
     end
     
-    http = http_klass.new("www.wesabe.com", 443)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_PEER
-    http.ca_file = self.class.ca_file
+    http = http_klass.new(uri.host, uri.port)
+    if uri.scheme == 'https'
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+      http.ca_file = self.class.ca_file
+    end
     http
+  end
+  
+  def uri
+    URI.join(self.class.base_url, url)
   end
   
   def process_response(res)
@@ -67,7 +73,6 @@ class Wesabe::Request
   #   If the request takes too long.
   def execute
     # set up the uri
-    uri = URI.join("https://www.wesabe.com", url)
     @username = uri.user if uri.user
     @password = uri.password if uri.password
     
@@ -83,7 +88,7 @@ class Wesabe::Request
   # Executes a request and returns the response.
   # 
   # @param [String] options[:url]
-  #   The url relative to "https://www.wesabe.com" to request (required).
+  #   The url relative to +Wesabe::Request.base_url+ to request (required).
   # 
   # @param [String] options[:username]
   #   The Wesabe username (required).
@@ -118,6 +123,16 @@ class Wesabe::Request
       return file if File.exist?(file)
     end
     raise "Unable to find a CA pem file to use for www.wesabe.com"
+  end
+  
+  # Gets the base url for the Wesabe API.
+  def self.base_url
+    @base_url ||= "https://www.wesabe.com"
+  end
+  
+  # Sets the base url for the Wesabe API.
+  def self.base_url=(base_url)
+    @base_url = base_url
   end
 end
 

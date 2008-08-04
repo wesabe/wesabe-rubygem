@@ -186,7 +186,22 @@ Returns the value of attribute <tt>username</tt>.
   
     <tr>
       <th class="signature">
-        <span class='name'><a title="ca_file" href="#ca_file-class_method">ca_file</a></span><span class='args'></span>
+        <span class='name'><a href="#base_url-class_method" title="base_url">base_url</a></span><span class='args'></span>
+        <span class='block'></span>
+        
+      </th>
+      <td class="docstring">
+        <p>
+Sets the base url for the Wesabe API.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        <span class='name'><a href="#ca_file-class_method" title="ca_file">ca_file</a></span><span class='args'></span>
         <span class='block'></span>
         
       </th>
@@ -198,7 +213,7 @@ Returns the value of attribute <tt>username</tt>.
   
     <tr>
       <th class="signature">
-        <span class='name'><a title="execute" href="#execute-class_method">execute</a></span><span class='args'>(options = Hash.new)</span>
+        <span class='name'><a href="#execute-class_method" title="execute">execute</a></span><span class='args'>(options = Hash.new)</span>
         <span class='block'></span>
         
       </th>
@@ -226,7 +241,7 @@ Executes a request and returns the response.
   
     <tr>
       <th class="signature">
-        <span class='name'><a title="#execute" href="#execute-instance_method">#execute</a></span><span class='args'></span>
+        <span class='name'><a href="#execute-instance_method" title="#execute">#execute</a></span><span class='args'></span>
         <span class='block'></span>
         
       </th>
@@ -253,6 +268,53 @@ Executes the request and returns the response.
   
     <div class="method">
       <div class="method_header">
+  <h3>base_url</h3>
+</div><div id="base_url-class_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'></span>
+    <span class='name'>base_url</span><span class='args'></span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section docstring">
+  <p>
+Sets the base url for the Wesabe API.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+134
+135
+136</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/request.rb', line 134</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='base_url identifier id'>base_url</span><span class='assign token'>=</span><span class='lparen token'>(</span><span class='base_url identifier id'>base_url</span><span class='rparen token'>)</span>
+  <span class='@base_url ivar id'>@base_url</span> <span class='assign token'>=</span> <span class='base_url identifier id'>base_url</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
   <h3>ca_file</h3>
 </div><div id="ca_file-class_method" class="section method">
   <div class="details_title">
@@ -274,16 +336,16 @@ Executes the request and returns the response.
           <pre class="lines">
 
 
-115
-116
-117
-118
-119
 120
-121</pre>
+121
+122
+123
+124
+125
+126</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe/request.rb', line 115</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/request.rb', line 120</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='ca_file identifier id'>ca_file</span>
   <span class='lbrack token'>[</span><span class='File constant id'>File</span><span class='dot token'>.</span><span class='expand_path identifier id'>expand_path</span><span class='lparen token'>(</span><span class='string val'>&quot;~/.wesabe&quot;</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='File constant id'>File</span><span class='dot token'>.</span><span class='dirname identifier id'>dirname</span><span class='lparen token'>(</span><span class='__FILE__ __file__ kw'>__FILE__</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='string val'>'..'</span><span class='rparen token'>)</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='dir identifier id'>dir</span><span class='bitor op'>|</span>
@@ -337,8 +399,7 @@ Executes a request and returns the response.
     </dt>
     <dd>
       <span class='desc'><p>
-The url relative to &quot;https://www.wesabe.com&quot; to request
-(required).
+The url relative to <tt>Wesabe::Request.base_url</tt> to request (required).
 </p>
 </span>
     </dd>
@@ -491,12 +552,12 @@ If the request takes too long.
           <pre class="lines">
 
 
-111
-112
-113</pre>
+116
+117
+118</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe/request.rb', line 111</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/request.rb', line 116</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='execute identifier id'>execute</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='assign token'>=</span><span class='Hash constant id'>Hash</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='rparen token'>)</span>
   <span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='execute identifier id'>execute</span>
@@ -600,12 +661,6 @@ If the request takes too long.
           <pre class="lines">
 
 
-68
-69
-70
-71
-72
-73
 74
 75
 76
@@ -613,14 +668,18 @@ If the request takes too long.
 78
 79
 80
-81</pre>
+81
+82
+83
+84
+85
+86</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe/request.rb', line 68</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/request.rb', line 74</span>
 
 <span class='def def kw'>def</span> <span class='execute identifier id'>execute</span>
   <span class='comment val'># set up the uri</span>
-  <span class='uri identifier id'>uri</span> <span class='assign token'>=</span> <span class='URI constant id'>URI</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>&quot;https://www.wesabe.com&quot;</span><span class='comma token'>,</span> <span class='url identifier id'>url</span><span class='rparen token'>)</span>
   <span class='@username ivar id'>@username</span> <span class='assign token'>=</span> <span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='user identifier id'>user</span> <span class='if if_mod kw'>if</span> <span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='user identifier id'>user</span>
   <span class='@password ivar id'>@password</span> <span class='assign token'>=</span> <span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='password identifier id'>password</span> <span class='if if_mod kw'>if</span> <span class='uri identifier id'>uri</span><span class='dot token'>.</span><span class='password identifier id'>password</span>
   
