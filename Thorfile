@@ -22,6 +22,7 @@ SPEC = Gem::Specification.new do |s|
   s.email = EMAIL
   s.homepage = HOMEPAGE
   s.rubyforge_project = PROJECT
+  s.add_dependency("hpricot", "0.6")
     
   s.require_path = 'lib'
   # s.bindir = "bin"
