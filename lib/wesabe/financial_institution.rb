@@ -18,17 +18,17 @@ class Wesabe::FinancialInstitution
   
   # Returns a +Wesabe::FinancialInstitution+ generated from Wesabe's API XML.
   # 
-  # @param [REXML::Element] xml
+  # @param [Hpricot::Element] xml
   #   The <financial-institution> element from the API.
   # 
   # @return [Wesabe::FinancialInstitution]
   #   The newly-created financial institution populated by +xml+.
   def self.from_xml(xml)
     new do |fi|
-      fi.id = (xml.elements["id"] || xml.elements["wesabe-id"]).text
-      fi.name = xml.elements["name"].text
-      fi.login_url = xml.elements["login-url"] && xml.elements["login-url"].text
-      fi.homepage_url = xml.elements["homepage-url"] && xml.elements["homepage-url"].text
+      fi.id = (xml.children_of_type("id") + xml.children_of_type("wesabe-id")).first.inner_text
+      fi.name = xml.at("name").inner_text
+      fi.login_url = xml.at("login-url") && xml.at("login-url").inner_text
+      fi.homepage_url = xml.at("homepage-url") && xml.at("homepage-url").inner_text
     end
   end
 end

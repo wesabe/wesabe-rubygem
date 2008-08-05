@@ -16,18 +16,18 @@ class Wesabe::Credential
   
   # Returns a +Wesabe::Credential+ generated from Wesabe's API XML.
   # 
-  # @param [REXML::Element] xml
+  # @param [Hpricot::Element] xml
   #   The <credential> element from the API.
   # 
   # @return [Wesabe::Credential]
   #   The newly-created credential populated by +xml+.
   def self.from_xml(xml)
     new do |cred|
-      cred.id = xml.elements["id"].text.to_i
-      cred.financial_institution = Wesabe::FinancialInstitution.from_xml(xml.elements["financial-institution"])
-      cred.accounts = []
-      xml.each_element("accounts/account") do |account|
-        cred.accounts << Wesabe::Account.from_xml(account)
+      cred.id = xml.at('id').inner_text.to_i
+      cred.financial_institution = Wesabe::FinancialInstitution.from_xml(
+                                    xml.children_of_type('financial-institution')[0])
+      cred.accounts = xml.search('accounts account').map do |account|
+        Wesabe::Account.from_xml(account)
       end
     end
   end

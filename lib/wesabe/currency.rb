@@ -14,17 +14,17 @@ class Wesabe::Currency
   
   # Returns a +Wesabe::Currency+ generated from Wesabe's API XML.
   # 
-  # @param [REXML::Element] xml
+  # @param [Hpricot::Element] xml
   #   The <currency> element from the API.
   # 
   # @return [Wesabe::Currency]
   #   The newly-created currency populated by +xml+.
   def self.from_xml(xml)
     new do |currency|
-      currency.decimal_places = xml.attributes["decimal_places"].to_i
-      currency.symbol         = xml.attributes["symbol"]
-      currency.separator      = xml.attributes["separator"]
-      currency.delimiter      = xml.attributes["delimiter"]
+      currency.decimal_places = xml[:decimal_places].to_s.to_i
+      currency.symbol         = xml[:symbol].to_s
+      currency.separator      = xml[:separator].to_s
+      currency.delimiter      = xml[:delimiter].to_s
     end
   end
 end

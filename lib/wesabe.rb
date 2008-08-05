@@ -1,7 +1,7 @@
 $:.unshift(File.dirname(__FILE__))
 
 require 'net/https'
-require 'rexml/document'
+require 'hpricot'
 require 'yaml'
 
 # Provides an object-oriented interface to the Wesabe API.
@@ -24,6 +24,24 @@ class Wesabe
   # Fetches the user's accounts list from Wesabe or, if the list was already
   # fetched, returns the cached result.
   # 
+  #   pp wesabe.accounts
+  #   [#<Wesabe::Account:0x106105c
+  #     @balance=-393.42,
+  #     @currency=
+  #      #<Wesabe::Currency:0x104fdc0
+  #       @decimal_places=2,
+  #       @delimiter=",",
+  #       @separator=".",
+  #       @symbol="$">,
+  #     @financial_institution=
+  #      #<Wesabe::FinancialInstitution:0x104b054
+  #       @homepage_url=nil,
+  #       @id="us-003383",
+  #       @login_url=nil,
+  #       @name="American Express Card">,
+  #     @id=4,
+  #     @name="Amex Blue">]
+  #
   # @return [Array<Wesabe::Account>]
   #   A list of the user's active accounts.
   def accounts
@@ -31,6 +49,8 @@ class Wesabe
   end
   
   # Returns an account with the given id or +nil+ if the account is not found.
+  # 
+  #   wesabe.account(4).name # => "Amex Blue"
   # 
   # @param [#to_s] id
   #   Something whose +to_s+ result matches the +to_s+ result of the account id.
@@ -42,11 +62,31 @@ class Wesabe
     accounts.find {|a| a.id.to_s == id.to_s}
   end
   
+  # Fetches the user's accounts list from Wesabe or, if the list was already
+  # fetched, returns the cached result.
+  # 
+  #   pp wesabe.credentials
+  #   [#<Wesabe::Credential:0x10ae870
+  #     @accounts=[],
+  #     @financial_institution=
+  #      #<Wesabe::FinancialInstitution:0x1091928
+  #       @homepage_url=nil,
+  #       @id="us-003383",
+  #       @login_url=nil,
+  #       @name="American Express Card">,
+  #     @id=3>]
+  # 
+  # @return [Array<Wesabe::Account>]
+  #   A list of the user's active accounts.
+  def credentials
+    @credentials ||= load_credentials
+  end
+  
   private
   
   def load_accounts
     process_accounts(
-      REXML::Document.new(
+      Hpricot::XML(
         Request.execute(
           :url => '/accounts.xml', 
           :username => username, 
@@ -54,11 +94,24 @@ class Wesabe
   end
   
   def process_accounts(xml)
-    accounts = []
-    xml.root.each_element("//account") do |element|
-      accounts << Account.from_xml(element)
+    (xml / :accounts / :account).map do |element|
+      Account.from_xml(element)
     end
-    accounts
+  end
+  
+  def load_credentials
+    process_credentials(
+      Hpricot::XML(
+        Request.execute(
+          :url => '/credentials.xml', 
+          :username => username, 
+          :password => password)))
+  end
+  
+  def process_credentials(xml)
+    (xml / :credentials / :credential).map do |element|
+      Credential.from_xml(element)
+    end
   end
 end
 

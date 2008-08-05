@@ -162,7 +162,7 @@ The password of an active Wesabe user.
   
     <tr>
       <th class="signature">
-        <span class='name'><a href="#account-instance_method" title="#account">#account</a></span><span class='args'>(id)</span>
+        <span class='name'><a title="#account" href="#account-instance_method">#account</a></span><span class='args'>(id)</span>
         <span class='block'></span>
         
       </th>
@@ -176,7 +176,7 @@ found.
           <p class='returns'>
             Returns: 
               <span class='return_types'>
-                 <tt><a href="Wesabe/Account.html" title="Wesabe::Account">Wesabe::Account</a></tt>
+                 <tt><a title="Wesabe::Account" href="Wesabe/Account.html">Wesabe::Account</a></tt>
               </span>
           </p>
         
@@ -185,7 +185,7 @@ found.
   
     <tr>
       <th class="signature">
-        <span class='name'><a href="#accounts-instance_method" title="#accounts">#accounts</a></span><span class='args'></span>
+        <span class='name'><a title="#accounts" href="#accounts-instance_method">#accounts</a></span><span class='args'></span>
         <span class='block'></span>
         
       </th>
@@ -199,7 +199,30 @@ already fetched, returns the cached result.
           <p class='returns'>
             Returns: 
               <span class='return_types'>
-                 <tt>Array&lt;<a href="Wesabe/Account.html" title="Wesabe::Account">Wesabe::Account</a>></tt>
+                 <tt>Array&lt;<a title="Wesabe::Account" href="Wesabe/Account.html">Wesabe::Account</a>></tt>
+              </span>
+          </p>
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        <span class='name'><a title="#credentials" href="#credentials-instance_method">#credentials</a></span><span class='args'></span>
+        <span class='block'></span>
+        
+      </th>
+      <td class="docstring">
+        <p>
+Fetches the user&#8217;s accounts list from Wesabe or, if the list was
+already fetched, returns the cached result.
+</p>
+
+        
+          <p class='returns'>
+            Returns: 
+              <span class='return_types'>
+                 <tt>Array&lt;<a title="Wesabe::Account" href="Wesabe/Account.html">Wesabe::Account</a>></tt>
               </span>
           </p>
         
@@ -219,7 +242,7 @@ already fetched, returns the cached result.
   <div class='section methodsignature'>
   <tt class='def'>
     <span class='visibility'>public</span>
-    <span class='return_types'><tt><a href="Wesabe/Account.html" title="Wesabe::Account">Wesabe::Account</a></tt></span>
+    <span class='return_types'><tt><a title="Wesabe::Account" href="Wesabe/Account.html">Wesabe::Account</a></tt></span>
     <span class='name'>account</span><span class='args'>(id)</span>
     <span class='block'></span>
   </tt>
@@ -230,6 +253,9 @@ already fetched, returns the cached result.
 Returns an account with the given id or <tt>nil</tt> if the account is not
 found.
 </p>
+<pre class="code">
+  <span class='wesabe identifier id'>wesabe</span><span class='dot token'>.</span><span class='account identifier id'>account</span><span class='lparen token'>(</span><span class='integer val'>4</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='name identifier id'>name</span> <span class='comment val'># =&gt; &quot;Amex Blue&quot;</span>
+</pre>
 
 </div><div class="section tags">
   <h2>Meta Tags</h2>
@@ -262,7 +288,7 @@ the account id.
   
     <dt>
       
-        <span class='type'>[<tt><a href="Wesabe/Account.html" title="Wesabe::Account">Wesabe::Account</a></tt>, <tt>nil</tt>]</span>
+        <span class='type'>[<tt><a title="Wesabe::Account" href="Wesabe/Account.html">Wesabe::Account</a></tt>, <tt>nil</tt>]</span>
       
       
         <span class='name'></span>
@@ -289,12 +315,12 @@ no account with that <tt>id</tt>.
           <pre class="lines">
 
 
-52
-53
-54</pre>
+61
+62
+63</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 52</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 61</span>
 
 <span class='def def kw'>def</span> <span class='account identifier id'>account</span><span class='lparen token'>(</span><span class='id identifier id'>id</span><span class='rparen token'>)</span>
   <span class='accounts identifier id'>accounts</span><span class='dot token'>.</span><span class='find identifier id'>find</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='a identifier id'>a</span><span class='bitor op'>|</span> <span class='a identifier id'>a</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span> <span class='eq op'>==</span> <span class='id identifier id'>id</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='rbrace token'>}</span>
@@ -316,7 +342,7 @@ no account with that <tt>id</tt>.
   <div class='section methodsignature'>
   <tt class='def'>
     <span class='visibility'>public</span>
-    <span class='return_types'><tt>Array&lt;<a href="Wesabe/Account.html" title="Wesabe::Account">Wesabe::Account</a>></tt></span>
+    <span class='return_types'><tt>Array&lt;<a title="Wesabe::Account" href="Wesabe/Account.html">Wesabe::Account</a>></tt></span>
     <span class='name'>accounts</span><span class='args'></span>
     <span class='block'></span>
   </tt>
@@ -327,6 +353,25 @@ no account with that <tt>id</tt>.
 Fetches the user&#8217;s accounts list from Wesabe or, if the list was
 already fetched, returns the cached result.
 </p>
+<pre class="code">
+  <span class='pp identifier id'>pp</span> <span class='wesabe identifier id'>wesabe</span><span class='dot token'>.</span><span class='accounts identifier id'>accounts</span>
+  <span class='lbrack token'>[</span><span class='comment val'>#&lt;Wesabe::Account:0x106105c</span>
+    <span class='@balance ivar id'>@balance</span><span class='assign token'>=</span><span class='float val'>-393.42</span><span class='comma token'>,</span>
+    <span class='@currency ivar id'>@currency</span><span class='assign token'>=</span>
+     <span class='comment val'>#&lt;Wesabe::Currency:0x104fdc0</span>
+      <span class='@decimal_places ivar id'>@decimal_places</span><span class='assign token'>=</span><span class='integer val'>2</span><span class='comma token'>,</span>
+      <span class='@delimiter ivar id'>@delimiter</span><span class='assign token'>=</span><span class='string val'>&quot;,&quot;</span><span class='comma token'>,</span>
+      <span class='@separator ivar id'>@separator</span><span class='assign token'>=</span><span class='string val'>&quot;.&quot;</span><span class='comma token'>,</span>
+      <span class='@symbol ivar id'>@symbol</span><span class='assign token'>=</span><span class='string val'>&quot;$&quot;</span><span class='gt op'>&gt;</span><span class='comma token'>,</span>
+    <span class='@financial_institution ivar id'>@financial_institution</span><span class='assign token'>=</span>
+     <span class='comment val'>#&lt;Wesabe::FinancialInstitution:0x104b054</span>
+      <span class='@homepage_url ivar id'>@homepage_url</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span>
+      <span class='@id ivar id'>@id</span><span class='assign token'>=</span><span class='string val'>&quot;us-003383&quot;</span><span class='comma token'>,</span>
+      <span class='@login_url ivar id'>@login_url</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span>
+      <span class='@name ivar id'>@name</span><span class='assign token'>=</span><span class='string val'>&quot;American Express Card&quot;</span><span class='gt op'>&gt;</span><span class='comma token'>,</span>
+    <span class='@id ivar id'>@id</span><span class='assign token'>=</span><span class='integer val'>4</span><span class='comma token'>,</span>
+    <span class='@name ivar id'>@name</span><span class='assign token'>=</span><span class='string val'>&quot;Amex Blue&quot;</span><span class='gt op'>&gt;</span><span class='rbrack token'>]</span>
+</pre>
 
 </div><div class="section tags">
   <h2>Meta Tags</h2>
@@ -336,7 +381,7 @@ already fetched, returns the cached result.
   
     <dt>
       
-        <span class='type'>[<tt>Array&lt;<a href="Wesabe/Account.html" title="Wesabe::Account">Wesabe::Account</a>></tt>]</span>
+        <span class='type'>[<tt>Array&lt;<a title="Wesabe::Account" href="Wesabe/Account.html">Wesabe::Account</a>></tt>]</span>
       
       
         <span class='name'></span>
@@ -362,37 +407,100 @@ A list of the user&#8217;s active accounts.
           <pre class="lines">
 
 
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42</pre>
+47
+48
+49</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 29</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 47</span>
 
 <span class='def def kw'>def</span> <span class='accounts identifier id'>accounts</span>
-  <span class='unless unless kw'>unless</span> <span class='@accounts ivar id'>@accounts</span>
-    <span class='@accounts ivar id'>@accounts</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
-    <span class='accounts identifier id'>accounts</span> <span class='assign token'>=</span> <span class='Request constant id'>Request</span><span class='dot token'>.</span><span class='execute identifier id'>execute</span><span class='lparen token'>(</span>
-                <span class='symbol val'>:url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'/accounts.xml'</span><span class='comma token'>,</span> 
-                <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='username identifier id'>username</span><span class='comma token'>,</span> 
-                <span class='symbol val'>:password</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='password identifier id'>password</span><span class='rparen token'>)</span>
-    <span class='REXML constant id'>REXML</span><span class='colon2 op'>::</span><span class='Document constant id'>Document</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='accounts identifier id'>accounts</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='root identifier id'>root</span><span class='dot token'>.</span><span class='each_element identifier id'>each_element</span><span class='lparen token'>(</span><span class='string val'>&quot;//account&quot;</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='element identifier id'>element</span><span class='bitor op'>|</span>
-      <span class='@accounts ivar id'>@accounts</span> <span class='lshft op'>&lt;&lt;</span> <span class='Account constant id'>Account</span><span class='dot token'>.</span><span class='from_xml identifier id'>from_xml</span><span class='lparen token'>(</span><span class='element identifier id'>element</span><span class='rparen token'>)</span>
-    <span class='end end kw'>end</span>
-  <span class='end end kw'>end</span>
+  <span class='@accounts ivar id'>@accounts</span> <span class='opasgn op'>||=</span> <span class='load_accounts identifier id'>load_accounts</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
   
-  <span class='return return kw'>return</span> <span class='@accounts ivar id'>@accounts</span>
+    <div class="method">
+      <div class="method_header">
+  <h3>credentials</h3>
+</div><div id="credentials-instance_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'><tt>Array&lt;<a title="Wesabe::Account" href="Wesabe/Account.html">Wesabe::Account</a>></tt></span>
+    <span class='name'>credentials</span><span class='args'></span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section docstring">
+  <p>
+Fetches the user&#8217;s accounts list from Wesabe or, if the list was
+already fetched, returns the cached result.
+</p>
+<pre class="code">
+  <span class='pp identifier id'>pp</span> <span class='wesabe identifier id'>wesabe</span><span class='dot token'>.</span><span class='credentials identifier id'>credentials</span>
+  <span class='lbrack token'>[</span><span class='comment val'>#&lt;Wesabe::Credential:0x10ae870</span>
+    <span class='@accounts ivar id'>@accounts</span><span class='assign token'>=</span><span class='lbrack token'>[</span><span class='rbrack token'>]</span><span class='comma token'>,</span>
+    <span class='@financial_institution ivar id'>@financial_institution</span><span class='assign token'>=</span>
+     <span class='comment val'>#&lt;Wesabe::FinancialInstitution:0x1091928</span>
+      <span class='@homepage_url ivar id'>@homepage_url</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span>
+      <span class='@id ivar id'>@id</span><span class='assign token'>=</span><span class='string val'>&quot;us-003383&quot;</span><span class='comma token'>,</span>
+      <span class='@login_url ivar id'>@login_url</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span>
+      <span class='@name ivar id'>@name</span><span class='assign token'>=</span><span class='string val'>&quot;American Express Card&quot;</span><span class='gt op'>&gt;</span><span class='comma token'>,</span>
+    <span class='@id ivar id'>@id</span><span class='assign token'>=</span><span class='integer val'>3</span><span class='gt op'>&gt;</span><span class='rbrack token'>]</span>
+</pre>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="return">
+  <h3>Returns:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>Array&lt;<a title="Wesabe::Account" href="Wesabe/Account.html">Wesabe::Account</a>></tt>]</span>
+      
+      
+        <span class='name'></span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+A list of the user&#8217;s active accounts.
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+81
+82
+83</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 81</span>
+
+<span class='def def kw'>def</span> <span class='credentials identifier id'>credentials</span>
+  <span class='@credentials ivar id'>@credentials</span> <span class='opasgn op'>||=</span> <span class='load_credentials identifier id'>load_credentials</span>
 <span class='end end kw'>end</span>
 </pre>
         </td>

@@ -20,19 +20,19 @@ class Wesabe::Account
   
   # Returns a +Wesabe::Account+ generated from Wesabe's API XML.
   # 
-  # @param [REXML::Element] xml
+  # @param [Hpricot::Element] xml
   #   The <account> element from the API.
   # 
   # @return [Wesabe::Account]
   #   The newly-created account populated by +xml+.
   def self.from_xml(xml)
     new do |account|
-      account.id = xml.elements["id"].text.to_i
-      account.name = xml.elements["name"].text
-      balance = xml.elements["current-balance"]
-      account.balance = balance.text.to_f if balance
-      account.currency = Wesabe::Currency.from_xml(xml.elements["currency"])
-      fi = xml.elements["financial-institution"]
+      account.id = xml.at("id").inner_text.to_i
+      account.name = xml.at("name").inner_text
+      balance = xml.at("current-balance")
+      account.balance = balance.inner_text.to_f if balance
+      account.currency = Wesabe::Currency.from_xml(xml.at("currency"))
+      fi = xml.at("financial-institution")
       account.financial_institution = Wesabe::FinancialInstitution.from_xml(fi) if fi
     end
   end

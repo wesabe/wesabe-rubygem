@@ -1,10 +1,6 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Wesabe::Currency do
-  def currency(n)
-    Wesabe::Currency.from_xml(fixture(:accounts).root.elements[n].elements["currency"])
-  end
-  
   it "aliases precision to decimal_places" do
     c = Wesabe::Currency.new
     

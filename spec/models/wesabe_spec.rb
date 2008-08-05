@@ -56,5 +56,22 @@ describe Wesabe do
         end
       end
     end
+    
+    describe "instance method credentials" do
+      it "makes a request for all a user's credentials" do
+        Wesabe::Request.
+          should_receive(:execute).
+          with(:url => '/credentials.xml', :username => 'username', :password => 'password').
+          and_return('<credentials></credentials>')
+        
+        wesabe.credentials.should be_empty
+      end
+      
+      it "caches the result" do
+        wesabe.should_receive(:load_credentials).once.and_return([])
+        wesabe.credentials
+        wesabe.credentials
+      end
+    end
   end
 end
