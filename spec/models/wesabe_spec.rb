@@ -12,19 +12,27 @@ describe Wesabe do
   
   describe "with valid credentials" do
     describe "instance method accounts" do
-      it "makes a request for all a user's active accounts" do
+      def stub_request
         Wesabe::Request.
           should_receive(:execute).
-          with(:url => '/accounts.xml', :username => 'username', :password => 'password').
-          and_return('<accounts></accounts>')
-        
-        wesabe.accounts.should be_empty
+          with(:url => '/accounts.xml', :method => :get, :username => 'username', :password => 'password').
+          and_return(fixture(:accounts))
+      end
+      
+      it "makes a request for all a user's active accounts" do
+        stub_request
+        wesabe.accounts.should have(4).accounts
       end
       
       it "caches the result" do
         wesabe.should_receive(:load_accounts).once.and_return([])
         wesabe.accounts
         wesabe.accounts
+      end
+      
+      it "associates each Account with this Wesabe instance" do
+        stub_request
+        wesabe.accounts.map{|a| a.wesabe}.should == [wesabe, wesabe, wesabe, wesabe]
       end
     end
     
@@ -58,19 +66,27 @@ describe Wesabe do
     end
     
     describe "instance method credentials" do
-      it "makes a request for all a user's credentials" do
+      def stub_request
         Wesabe::Request.
           should_receive(:execute).
-          with(:url => '/credentials.xml', :username => 'username', :password => 'password').
-          and_return('<credentials></credentials>')
-        
-        wesabe.credentials.should be_empty
+          with(:url => '/credentials.xml', :method => :get, :username => 'username', :password => 'password').
+          and_return(fixture(:credentials))
+      end
+      
+      it "makes a request for all a user's credentials" do
+        stub_request
+        wesabe.credentials.should have(2).credentials
       end
       
       it "caches the result" do
         wesabe.should_receive(:load_credentials).once.and_return([])
         wesabe.credentials
         wesabe.credentials
+      end
+      
+      it "associates each Credential with this Wesabe instance" do
+        stub_request
+        wesabe.credentials.map{|c| c.wesabe}.should == [wesabe, wesabe]
       end
     end
   end

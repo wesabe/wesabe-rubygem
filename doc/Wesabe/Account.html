@@ -14,7 +14,11 @@
     <div id="content">
       <div class="section class Wesabe_Account">
   <h1 class="title">Class: Wesabe::Account</h1>
-  <div class="section attributes">
+  <div class="section inheritance">
+  <ul>
+  <li><a href="BaseModel.html" title="Wesabe::BaseModel">Wesabe::BaseModel</a></li><ul><li>Wesabe::Account</li>
+  </ul></ul>
+</div><div class="section attributes">
   <h1>Attributes</h1>
 
   
@@ -139,7 +143,7 @@ Initializes a <tt>Wesabe::Account</tt> and yields itself.
   
     <dt>
       
-        <span class='type'>[<tt><a title="Wesabe::Account" href="">Wesabe::Account</a></tt>]</span>
+        <span class='type'>[<tt><a href="" title="Wesabe::Account">Wesabe::Account</a></tt>]</span>
       
       
         <span class='name'>account</span>
@@ -190,7 +194,7 @@ The newly-created account.
   
     <tr>
       <th class="signature">
-        <span class='name'><a title="from_xml" href="#from_xml-class_method">from_xml</a></span><span class='args'>(xml)</span>
+        <span class='name'><a href="#from_xml-class_method" title="from_xml">from_xml</a></span><span class='args'>(xml)</span>
         <span class='block'></span>
         
       </th>
@@ -203,7 +207,7 @@ Returns a <tt>Wesabe::Account</tt> generated from Wesabe&#8217;s API XML.
           <p class='returns'>
             Returns: 
               <span class='return_types'>
-                 <tt><a title="Wesabe::Account" href="">Wesabe::Account</a></tt>
+                 <tt><a href="" title="Wesabe::Account">Wesabe::Account</a></tt>
               </span>
           </p>
         
@@ -211,6 +215,17 @@ Returns a <tt>Wesabe::Account</tt> generated from Wesabe&#8217;s API XML.
     </tr>
   
 </table>
+  </div>
+  <div class="section methodsummary instance public">
+    <div class="inherited">
+  
+  <div>
+    <h1>Public Instance Methods Inherited from <a href="BaseModel.html" title="Wesabe::BaseModel">Wesabe::BaseModel</a></h1>
+    <p><span class='name'><a href="BaseModel.html#get-instance_method" title="get">get</a></span>, <span class='name'><a href="BaseModel.html#post-instance_method" title="post">post</a></span></p>
+  </div>
+  
+</div>
+<div class="clear"></div>
   </div>
 <div class="section methoddetails class public">
   <h1>Public Class Method Details</h1>
@@ -223,7 +238,7 @@ Returns a <tt>Wesabe::Account</tt> generated from Wesabe&#8217;s API XML.
   <div class='section methodsignature'>
   <tt class='def'>
     <span class='visibility'>public</span>
-    <span class='return_types'><tt><a title="Wesabe::Account" href="">Wesabe::Account</a></tt></span>
+    <span class='return_types'><tt><a href="" title="Wesabe::Account">Wesabe::Account</a></tt></span>
     <span class='name'>from_xml</span><span class='args'>(xml)</span>
     <span class='block'></span>
   </tt>
@@ -264,7 +279,7 @@ The &lt;account&gt; element from the API.
   
     <dt>
       
-        <span class='type'>[<tt><a title="Wesabe::Account" href="">Wesabe::Account</a></tt>]</span>
+        <span class='type'>[<tt><a href="" title="Wesabe::Account">Wesabe::Account</a></tt>]</span>
       
       
         <span class='name'></span>
@@ -307,10 +322,10 @@ The newly-created account populated by <tt>xml</tt>.
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='from_xml identifier id'>from_xml</span><span class='lparen token'>(</span><span class='xml identifier id'>xml</span><span class='rparen token'>)</span>
   <span class='new identifier id'>new</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='account identifier id'>account</span><span class='bitor op'>|</span>
-    <span class='account identifier id'>account</span><span class='dot token'>.</span><span class='id identifier id'>id</span> <span class='assign token'>=</span> <span class='xml identifier id'>xml</span><span class='dot token'>.</span><span class='at identifier id'>at</span><span class='lparen token'>(</span><span class='string val'>&quot;id&quot;</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='inner_html identifier id'>inner_html</span><span class='dot token'>.</span><span class='to_i identifier id'>to_i</span>
-    <span class='account identifier id'>account</span><span class='dot token'>.</span><span class='name identifier id'>name</span> <span class='assign token'>=</span> <span class='xml identifier id'>xml</span><span class='dot token'>.</span><span class='at identifier id'>at</span><span class='lparen token'>(</span><span class='string val'>&quot;name&quot;</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='inner_html identifier id'>inner_html</span>
+    <span class='account identifier id'>account</span><span class='dot token'>.</span><span class='id identifier id'>id</span> <span class='assign token'>=</span> <span class='xml identifier id'>xml</span><span class='dot token'>.</span><span class='at identifier id'>at</span><span class='lparen token'>(</span><span class='string val'>&quot;id&quot;</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='inner_text identifier id'>inner_text</span><span class='dot token'>.</span><span class='to_i identifier id'>to_i</span>
+    <span class='account identifier id'>account</span><span class='dot token'>.</span><span class='name identifier id'>name</span> <span class='assign token'>=</span> <span class='xml identifier id'>xml</span><span class='dot token'>.</span><span class='at identifier id'>at</span><span class='lparen token'>(</span><span class='string val'>&quot;name&quot;</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='inner_text identifier id'>inner_text</span>
     <span class='balance identifier id'>balance</span> <span class='assign token'>=</span> <span class='xml identifier id'>xml</span><span class='dot token'>.</span><span class='at identifier id'>at</span><span class='lparen token'>(</span><span class='string val'>&quot;current-balance&quot;</span><span class='rparen token'>)</span>
-    <span class='account identifier id'>account</span><span class='dot token'>.</span><span class='balance identifier id'>balance</span> <span class='assign token'>=</span> <span class='balance identifier id'>balance</span><span class='dot token'>.</span><span class='inner_html identifier id'>inner_html</span><span class='dot token'>.</span><span class='to_f identifier id'>to_f</span> <span class='if if_mod kw'>if</span> <span class='balance identifier id'>balance</span>
+    <span class='account identifier id'>account</span><span class='dot token'>.</span><span class='balance identifier id'>balance</span> <span class='assign token'>=</span> <span class='balance identifier id'>balance</span><span class='dot token'>.</span><span class='inner_text identifier id'>inner_text</span><span class='dot token'>.</span><span class='to_f identifier id'>to_f</span> <span class='if if_mod kw'>if</span> <span class='balance identifier id'>balance</span>
     <span class='account identifier id'>account</span><span class='dot token'>.</span><span class='currency identifier id'>currency</span> <span class='assign token'>=</span> <span class='Wesabe constant id'>Wesabe</span><span class='colon2 op'>::</span><span class='Currency constant id'>Currency</span><span class='dot token'>.</span><span class='from_xml identifier id'>from_xml</span><span class='lparen token'>(</span><span class='xml identifier id'>xml</span><span class='dot token'>.</span><span class='at identifier id'>at</span><span class='lparen token'>(</span><span class='string val'>&quot;currency&quot;</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
     <span class='fi identifier id'>fi</span> <span class='assign token'>=</span> <span class='xml identifier id'>xml</span><span class='dot token'>.</span><span class='at identifier id'>at</span><span class='lparen token'>(</span><span class='string val'>&quot;financial-institution&quot;</span><span class='rparen token'>)</span>
     <span class='account identifier id'>account</span><span class='dot token'>.</span><span class='financial_institution identifier id'>financial_institution</span> <span class='assign token'>=</span> <span class='Wesabe constant id'>Wesabe</span><span class='colon2 op'>::</span><span class='FinancialInstitution constant id'>FinancialInstitution</span><span class='dot token'>.</span><span class='from_xml identifier id'>from_xml</span><span class='lparen token'>(</span><span class='fi identifier id'>fi</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='fi identifier id'>fi</span>

@@ -1,4 +1,4 @@
-class Wesabe::FinancialInstitution
+class Wesabe::FinancialInstitution < Wesabe::BaseModel
   # The id of this +FinancialInstitution+, as used in URLs.
   attr_accessor :id
   # The name of this +FinancialInstitution+ ("Bank of America").

@@ -1,4 +1,4 @@
-class Wesabe::Currency
+class Wesabe::Currency < Wesabe::BaseModel
   attr_accessor :decimal_places, :symbol, :separator, :delimiter
   
   # Initializes a +Wesabe::Currency+ and yields itself.

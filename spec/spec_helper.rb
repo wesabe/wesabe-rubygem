@@ -3,8 +3,13 @@ require File.dirname(__FILE__) + '/../lib/wesabe'
 Spec::Runner.configure do |config|
   def fixture(name)
     if File.exist?(path = fixture_path(name, :xml))
-      Hpricot::XML(File.read(path))
+      # Hpricot::XML(File.read(path))
+      File.read(path)
     end
+  end
+  
+  def xml_fixture(name)
+    Hpricot::XML(fixture(name))
   end
   
   def fixture_path(name, ext)
@@ -13,12 +18,12 @@ Spec::Runner.configure do |config|
   
   def financial_institution(n)
     Wesabe::FinancialInstitution.from_xml(
-      fixture(:financial_institutions).root.children_of_type('financial-inst')[n])
+      xml_fixture(:financial_institutions).root.children_of_type('financial-inst')[n])
   end
   
   def account(n)
     Wesabe::Account.from_xml(
-      fixture(:accounts).root.children_of_type('account')[n])
+      xml_fixture(:accounts).root.children_of_type('account')[n])
   end
   
   def currency(n)
@@ -27,6 +32,11 @@ Spec::Runner.configure do |config|
   
   def credential(n)
     Wesabe::Credential.from_xml(
-      fixture(:credentials).root.children_of_type('credential')[n])
+      xml_fixture(:credentials).root.children_of_type('credential')[n])
+  end
+  
+  def job(n)
+    Wesabe::Job.from_xml(
+      xml_fixture(:jobs).root.children_of_type('job')[n])
   end
 end

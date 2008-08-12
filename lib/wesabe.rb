@@ -3,6 +3,7 @@ $:.unshift(File.dirname(__FILE__))
 require 'net/https'
 require 'hpricot'
 require 'yaml'
+require 'time'
 
 # Provides an object-oriented interface to the Wesabe API.
 class Wesabe
@@ -82,41 +83,52 @@ class Wesabe
     @credentials ||= load_credentials
   end
   
+  # Executes a request via POST with the initial username and password.
+  # 
+  # @see Wesabe::Request::execute
+  def post(options)
+    Request.execute({:method => :post, :username => username, :password => password}.merge(options))
+  end
+  
+  # Executes a request via GET with the initial username and password.
+  # 
+  # @see Wesabe::Request::execute
+  def get(options)
+    Request.execute({:method => :get, :username => username, :password => password}.merge(options))
+  end
+  
   private
   
   def load_accounts
-    process_accounts(
-      Hpricot::XML(
-        Request.execute(
-          :url => '/accounts.xml', 
-          :username => username, 
-          :password => password)))
+    process_accounts( Hpricot::XML( get(:url => '/accounts.xml') ) )
   end
   
   def process_accounts(xml)
-    (xml / :accounts / :account).map do |element|
+    associate((xml / :accounts / :account).map do |element|
       Account.from_xml(element)
-    end
+    end)
   end
   
   def load_credentials
-    process_credentials(
-      Hpricot::XML(
-        Request.execute(
-          :url => '/credentials.xml', 
-          :username => username, 
-          :password => password)))
+    process_credentials( Hpricot::XML( get(:url => '/credentials.xml') ) )
   end
   
   def process_credentials(xml)
-    (xml / :credentials / :credential).map do |element|
+    associate((xml / :credentials / :credential).map do |element|
       Credential.from_xml(element)
-    end
+    end)
+  end
+  
+  def associate(what)
+    Wesabe::Util.all_or_one(what) {|obj| obj.wesabe = self}
   end
 end
 
+require 'wesabe/util'
 require 'wesabe/request'
+require 'wesabe/base_model'
 require 'wesabe/account'
+require 'wesabe/financial_institution'
 require 'wesabe/currency'
 require 'wesabe/credential'
-require 'wesabe/financial_institution'
+require 'wesabe/job'

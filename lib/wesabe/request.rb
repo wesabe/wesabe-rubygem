@@ -134,11 +134,23 @@ class Wesabe::Request
   def self.base_url=(base_url)
     @base_url = base_url
   end
+  
+  class Exception < RuntimeError; end
+  class ServerBrokeConnection < Exception; end
+  class Redirect < Exception; end
+  class Unauthorized < Exception; end
+  class ResourceNotFound < Exception; end
+  class RequestFailed < Exception
+    attr_reader :response
+    
+    def initialize(response=nil)
+      begin
+        # try to get the error message
+        @response = Hpricot.XML(response)
+        super((@response / :error / :message).inner_text)
+      rescue Exception => e
+        super(@response = response)
+      end
+    end
+  end
 end
-
-class Wesabe::Request::Exception < RuntimeError; end
-class Wesabe::Request::ServerBrokeConnection < Exception; end
-class Wesabe::Request::Redirect < Exception; end
-class Wesabe::Request::Unauthorized < Exception; end
-class Wesabe::Request::ResourceNotFound < Exception; end
-class Wesabe::Request::RequestFailed < Exception; end

@@ -16,10 +16,89 @@
   <h1 class="title">Exception: Wesabe::Request::RequestFailed</h1>
   <div class="section inheritance">
   <ul>
-  <li>RuntimeError</li><ul><li><a title="Wesabe::Request::Exception" href="Exception.html">Wesabe::Request::Exception</a></li><ul><li>Wesabe::Request::RequestFailed</li>
+  <li>RuntimeError</li><ul><li><a href="Exception.html" title="Wesabe::Request::Exception">Wesabe::Request::Exception</a></li><ul><li>Wesabe::Request::RequestFailed</li>
   </ul></ul></ul>
+</div><div class="section attributes">
+  <h1>Attributes</h1>
+
+  
+    <div class="instance">
+      <h2>Instance Attributes</h2>
+      <table>
+      
+        <tr>
+          <th class="name">response</td>
+          <td class="readwrite">
+            [<span id='response-instance_method'>R</span>W] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+Returns the value of attribute <tt>response</tt>.
+</p>
+
+            
+          </td>
+        </tr>
+      
+      </table>
+    </div>
+  
 </div><div class="section constants">
   
+</div><div class="section constructor">
+<h1>Constructor Summary</h1>
+  <div id="initialize-instance_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'></span>
+    <span class='name'>initialize</span><span class='args'>(response = nil)</span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+146
+147
+148
+149
+150
+151
+152
+153
+154</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/request.rb', line 146</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='response identifier id'>response</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='begin begin kw'>begin</span>
+    <span class='comment val'># try to get the error message</span>
+    <span class='@response ivar id'>@response</span> <span class='assign token'>=</span> <span class='Hpricot constant id'>Hpricot</span><span class='dot token'>.</span><span class='XML constant id'>XML</span><span class='lparen token'>(</span><span class='response identifier id'>response</span><span class='rparen token'>)</span>
+    <span class='super super kw'>super</span><span class='lparen token'>(</span><span class='lparen token'>(</span><span class='@response ivar id'>@response</span> <span class='div op'>/</span> <span class='symbol val'>:error</span> <span class='div op'>/</span> <span class='symbol val'>:message</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='inner_text identifier id'>inner_text</span><span class='rparen token'>)</span>
+  <span class='rescue rescue kw'>rescue</span> <span class='Exception constant id'>Exception</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='e identifier id'>e</span>
+    <span class='super super kw'>super</span><span class='lparen token'>(</span><span class='@response ivar id'>@response</span> <span class='assign token'>=</span> <span class='response identifier id'>response</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
 </div>
 </div>
     </div>

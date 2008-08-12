@@ -1,4 +1,4 @@
-class Wesabe::Account
+class Wesabe::Account < Wesabe::BaseModel
   # The user-scoped account id, used to identify the account in URLs.
   attr_accessor :id
   # The user-provided account name ("Bank of America - Checking")

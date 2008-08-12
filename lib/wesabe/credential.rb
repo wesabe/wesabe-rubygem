@@ -1,4 +1,4 @@
-class Wesabe::Credential
+class Wesabe::Credential < Wesabe::BaseModel
   # The id of the credential, used to identify the account in URLs.
   attr_accessor :id
   # The financial institution this credential is for.
@@ -12,6 +12,14 @@ class Wesabe::Credential
   #   The newly-created credential.
   def initialize
     yield self if block_given?
+  end
+  
+  # Starts a new sync job for this +Wesabe::Credential+.
+  # 
+  # @return [Wesabe::Job]
+  #   The job that was just started.
+  def start_job
+    associate(Wesabe::Job.from_xml(Hpricot::XML(post("/credentials/#{id}/jobs.xml")) / :job))
   end
   
   # Returns a +Wesabe::Credential+ generated from Wesabe's API XML.
@@ -30,5 +38,11 @@ class Wesabe::Credential
         Wesabe::Account.from_xml(account)
       end
     end
+  end
+  
+  private
+  
+  def associate(what)
+    all_or_one(super(what)) {|obj| obj.credential = self}
   end
 end

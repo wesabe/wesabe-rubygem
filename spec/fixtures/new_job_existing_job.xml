@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<error>
+  <message>The last job run for these credentials is still running.</message>
+  <job>
+    <created-at>2008-08-12T18:08:08Z</created-at>
+    <status>pending</status>
+    <result>started</result>
+    <id>9e61c2ac-6899-11dd-46be-7dfe37500884</id>
+    <credential-id>1</credential-id>
+  </job>
+</error>
