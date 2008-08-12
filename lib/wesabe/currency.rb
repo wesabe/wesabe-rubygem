@@ -27,4 +27,8 @@ class Wesabe::Currency < Wesabe::BaseModel
       currency.delimiter      = xml[:delimiter].to_s
     end
   end
+  
+  def inspect
+    inspect_these :symbol, :decimal_places, :separator, :delimiter
+  end
 end

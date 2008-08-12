@@ -20,7 +20,7 @@ describe Wesabe::Job do
       @job.
         should_receive(:get).
         with(:url => "/credentials/#{@job.credential.id}/jobs/#{@job.id}.xml").
-        and_return(Hpricot.XML(fixture(:job)))
+        and_return(fixture(:job))
     end
     
     it "replaces the contents of the job" do

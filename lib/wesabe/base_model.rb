@@ -24,4 +24,8 @@ class Wesabe::BaseModel
   def associate(what)
     all_or_one(what) {|obj| obj.wesabe = wesabe}
   end
+  
+  def inspect_these(*attributes)
+    "#<#{self.class.name}#{attributes.map{|a| " #{a}=#{send(a).inspect}"}.join}>"
+  end
 end

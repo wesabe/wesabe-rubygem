@@ -32,7 +32,10 @@ class Wesabe::Job < Wesabe::BaseModel
   # 
   # @return [Wesabe::Job] Returns self.
   def reload
-    replace Wesabe::Job.from_xml(get(:url => "/credentials/#{credential.id}/jobs/#{id}.xml"))
+    replace(
+      Wesabe::Job.from_xml(
+        Hpricot.XML(
+          get(:url => "/credentials/#{credential.id}/jobs/#{id}.xml"))))
     return self
   end
   
@@ -80,6 +83,10 @@ class Wesabe::Job < Wesabe::BaseModel
       job.result = xml.at('result').inner_text
       job.created_at = Time.parse(xml.at('created-at').inner_text)
     end
+  end
+  
+  def inspect
+    inspect_these :id, :status, :result, :created_at
   end
   
   private

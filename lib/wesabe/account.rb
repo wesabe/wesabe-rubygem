@@ -36,4 +36,8 @@ class Wesabe::Account < Wesabe::BaseModel
       account.financial_institution = Wesabe::FinancialInstitution.from_xml(fi) if fi
     end
   end
+  
+  def inspect
+    inspect_these :id, :name, :balance, :financial_institution, :currency
+  end
 end

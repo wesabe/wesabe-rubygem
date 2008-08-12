@@ -217,7 +217,22 @@ Returns a <tt>Wesabe::Account</tt> generated from Wesabe&#8217;s API XML.
 </table>
   </div>
   <div class="section methodsummary instance public">
-    <div class="inherited">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        <span class='name'><a href="#inspect-instance_method" title="#inspect">#inspect</a></span><span class='args'></span>
+        <span class='block'></span>
+        
+      </th>
+      <td class="docstring">
+        
+        
+      </td>
+    </tr>
+  
+</table><div class="inherited">
   
   <div>
     <h1>Public Instance Methods Inherited from <a href="BaseModel.html" title="Wesabe::BaseModel">Wesabe::BaseModel</a></h1>
@@ -330,6 +345,51 @@ The newly-created account populated by <tt>xml</tt>.
     <span class='fi identifier id'>fi</span> <span class='assign token'>=</span> <span class='xml identifier id'>xml</span><span class='dot token'>.</span><span class='at identifier id'>at</span><span class='lparen token'>(</span><span class='string val'>&quot;financial-institution&quot;</span><span class='rparen token'>)</span>
     <span class='account identifier id'>account</span><span class='dot token'>.</span><span class='financial_institution identifier id'>financial_institution</span> <span class='assign token'>=</span> <span class='Wesabe constant id'>Wesabe</span><span class='colon2 op'>::</span><span class='FinancialInstitution constant id'>FinancialInstitution</span><span class='dot token'>.</span><span class='from_xml identifier id'>from_xml</span><span class='lparen token'>(</span><span class='fi identifier id'>fi</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='fi identifier id'>fi</span>
   <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div><div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>inspect</h3>
+</div><div id="inspect-instance_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'></span>
+    <span class='name'>inspect</span><span class='args'></span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+40
+41
+42</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/account.rb', line 40</span>
+
+<span class='def def kw'>def</span> <span class='inspect identifier id'>inspect</span>
+  <span class='inspect_these identifier id'>inspect_these</span> <span class='symbol val'>:id</span><span class='comma token'>,</span> <span class='symbol val'>:name</span><span class='comma token'>,</span> <span class='symbol val'>:balance</span><span class='comma token'>,</span> <span class='symbol val'>:financial_institution</span><span class='comma token'>,</span> <span class='symbol val'>:currency</span>
 <span class='end end kw'>end</span>
 </pre>
         </td>

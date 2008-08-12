@@ -266,6 +266,18 @@ Determines whether this job failed.
   
     <tr>
       <th class="signature">
+        <span class='name'><a href="#inspect-instance_method" title="#inspect">#inspect</a></span><span class='args'></span>
+        <span class='block'></span>
+        
+      </th>
+      <td class="docstring">
+        
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
         <span class='name'><a href="#pending%3F-instance_method" title="#pending?">#pending?</a></span><span class='args'></span>
         <span class='block'></span>
         
@@ -418,17 +430,17 @@ The newly-created job populated by <tt>xml</tt>.
           <pre class="lines">
 
 
-76
-77
-78
 79
 80
 81
 82
-83</pre>
+83
+84
+85
+86</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe/job.rb', line 76</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/job.rb', line 79</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='from_xml identifier id'>from_xml</span><span class='lparen token'>(</span><span class='xml identifier id'>xml</span><span class='rparen token'>)</span>
   <span class='new identifier id'>new</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='job identifier id'>job</span><span class='bitor op'>|</span>
@@ -503,12 +515,12 @@ Whether the job is finished running.
           <pre class="lines">
 
 
-49
-50
-51</pre>
+52
+53
+54</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe/job.rb', line 49</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/job.rb', line 52</span>
 
 <span class='def def kw'>def</span> <span class='complete? fid id'>complete?</span>
   <span class='notop op'>!</span><span class='pending? fid id'>pending?</span>
@@ -575,15 +587,57 @@ Whether this job has completed and, if so, whether it failed.
           <pre class="lines">
 
 
-65
-66
-67</pre>
+68
+69
+70</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe/job.rb', line 65</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/job.rb', line 68</span>
 
 <span class='def def kw'>def</span> <span class='failed? fid id'>failed?</span>
   <span class='status identifier id'>status</span> <span class='eq op'>==</span> <span class='string val'>'failed'</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>inspect</h3>
+</div><div id="inspect-instance_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'></span>
+    <span class='name'>inspect</span><span class='args'></span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+88
+89
+90</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/job.rb', line 88</span>
+
+<span class='def def kw'>def</span> <span class='inspect identifier id'>inspect</span>
+  <span class='inspect_these identifier id'>inspect_these</span> <span class='symbol val'>:id</span><span class='comma token'>,</span> <span class='symbol val'>:status</span><span class='comma token'>,</span> <span class='symbol val'>:result</span><span class='comma token'>,</span> <span class='symbol val'>:created_at</span>
 <span class='end end kw'>end</span>
 </pre>
         </td>
@@ -647,12 +701,12 @@ Whether the job is still running.
           <pre class="lines">
 
 
-42
-43
-44</pre>
+45
+46
+47</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe/job.rb', line 42</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/job.rb', line 45</span>
 
 <span class='def def kw'>def</span> <span class='pending? fid id'>pending?</span>
   <span class='status identifier id'>status</span> <span class='eq op'>==</span> <span class='string val'>'pending'</span>
@@ -732,13 +786,19 @@ Returns self.
 34
 35
 36
-37</pre>
+37
+38
+39
+40</pre>
         </td>
         <td>
           <pre class="code"><span class="info file"># File 'lib/wesabe/job.rb', line 34</span>
 
 <span class='def def kw'>def</span> <span class='reload identifier id'>reload</span>
-  <span class='replace identifier id'>replace</span> <span class='Wesabe constant id'>Wesabe</span><span class='colon2 op'>::</span><span class='Job constant id'>Job</span><span class='dot token'>.</span><span class='from_xml identifier id'>from_xml</span><span class='lparen token'>(</span><span class='get identifier id'>get</span><span class='lparen token'>(</span><span class='symbol val'>:url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>&quot;/credentials/#{credential.id}/jobs/#{id}.xml&quot;</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='replace identifier id'>replace</span><span class='lparen token'>(</span>
+    <span class='Wesabe constant id'>Wesabe</span><span class='colon2 op'>::</span><span class='Job constant id'>Job</span><span class='dot token'>.</span><span class='from_xml identifier id'>from_xml</span><span class='lparen token'>(</span>
+      <span class='Hpricot constant id'>Hpricot</span><span class='dot token'>.</span><span class='XML constant id'>XML</span><span class='lparen token'>(</span>
+        <span class='get identifier id'>get</span><span class='lparen token'>(</span><span class='symbol val'>:url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>&quot;/credentials/#{credential.id}/jobs/#{id}.xml&quot;</span><span class='rparen token'>)</span><span class='rparen token'>)</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
   <span class='return return kw'>return</span> <span class='self self kw'>self</span>
 <span class='end end kw'>end</span>
 </pre>
@@ -803,12 +863,12 @@ Whether this job has completed and, if so, whether it was successful.
           <pre class="lines">
 
 
-57
-58
-59</pre>
+60
+61
+62</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe/job.rb', line 57</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/job.rb', line 60</span>
 
 <span class='def def kw'>def</span> <span class='successful? fid id'>successful?</span>
   <span class='status identifier id'>status</span> <span class='eq op'>==</span> <span class='string val'>'successful'</span>

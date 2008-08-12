@@ -31,4 +31,8 @@ class Wesabe::FinancialInstitution < Wesabe::BaseModel
       fi.homepage_url = xml.at("homepage-url") && xml.at("homepage-url").inner_text
     end
   end
+  
+  def inspect
+    inspect_these :id, :name
+  end
 end

@@ -199,7 +199,22 @@ Returns a <tt>Wesabe::Currency</tt> generated from Wesabe&#8217;s API XML.
 </table>
   </div>
   <div class="section methodsummary instance public">
-    <div class="inherited">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        <span class='name'><a href="#inspect-instance_method" title="#inspect">#inspect</a></span><span class='args'></span>
+        <span class='block'></span>
+        
+      </th>
+      <td class="docstring">
+        
+        
+      </td>
+    </tr>
+  
+</table><div class="inherited">
   
   <div>
     <h1>Public Instance Methods Inherited from <a href="BaseModel.html" title="Wesabe::BaseModel">Wesabe::BaseModel</a></h1>
@@ -306,6 +321,51 @@ The newly-created currency populated by <tt>xml</tt>.
     <span class='currency identifier id'>currency</span><span class='dot token'>.</span><span class='separator identifier id'>separator</span>      <span class='assign token'>=</span> <span class='xml identifier id'>xml</span><span class='lbrack token'>[</span><span class='symbol val'>:separator</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span>
     <span class='currency identifier id'>currency</span><span class='dot token'>.</span><span class='delimiter identifier id'>delimiter</span>      <span class='assign token'>=</span> <span class='xml identifier id'>xml</span><span class='lbrack token'>[</span><span class='symbol val'>:delimiter</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span>
   <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div><div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>inspect</h3>
+</div><div id="inspect-instance_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'></span>
+    <span class='name'>inspect</span><span class='args'></span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+31
+32
+33</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/currency.rb', line 31</span>
+
+<span class='def def kw'>def</span> <span class='inspect identifier id'>inspect</span>
+  <span class='inspect_these identifier id'>inspect_these</span> <span class='symbol val'>:symbol</span><span class='comma token'>,</span> <span class='symbol val'>:decimal_places</span><span class='comma token'>,</span> <span class='symbol val'>:separator</span><span class='comma token'>,</span> <span class='symbol val'>:delimiter</span>
 <span class='end end kw'>end</span>
 </pre>
         </td>

@@ -19,7 +19,7 @@ class Wesabe::Credential < Wesabe::BaseModel
   # @return [Wesabe::Job]
   #   The job that was just started.
   def start_job
-    associate(Wesabe::Job.from_xml(Hpricot::XML(post("/credentials/#{id}/jobs.xml")) / :job))
+    associate(Wesabe::Job.from_xml(Hpricot::XML(post(:url => "/credentials/#{id}/jobs.xml")) / :job))
   end
   
   # Returns a +Wesabe::Credential+ generated from Wesabe's API XML.
@@ -38,6 +38,10 @@ class Wesabe::Credential < Wesabe::BaseModel
         Wesabe::Account.from_xml(account)
       end
     end
+  end
+  
+  def inspect
+    inspect_these :id, :financial_institution, :accounts
   end
   
   private

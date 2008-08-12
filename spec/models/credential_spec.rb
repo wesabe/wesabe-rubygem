@@ -20,6 +20,14 @@ describe Wesabe::Credential do
         @cred.stub!(:post).and_return(fixture(:new_job))
       end
       
+      it "posts with the correct options" do
+        @cred.
+          should_receive(:post).
+          with(:url => "/credentials/#{@cred.id}/jobs.xml").
+          and_return(fixture(:new_job))
+        @cred.start_job
+      end
+      
       it "returns a Wesabe::Job representing the newly-created job" do
         job = @cred.start_job
         job.should be_an_instance_of(Wesabe::Job)
