@@ -17,6 +17,7 @@ describe Wesabe::Job do
   describe "reload" do
     before do
       @job = Wesabe::Job.from_xml(Hpricot.XML(fixture(:pending_job)))
+      @job.credential = credential(0)
       @job.
         should_receive(:get).
         with(:url => "/credentials/#{@job.credential.id}/jobs/#{@job.id}.xml").

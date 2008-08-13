@@ -63,9 +63,17 @@ describe Wesabe::Request do
     end
     
     describe "with a 302 response" do
-      it "raises Redirect with the url" do
+      it "raises Redirect" do
         lambda { process('302', '', 'Location' => 'https://www.wesabe.com/user/login') }.
-          should raise_error(Wesabe::Request::Redirect, 'https://www.wesabe.com/user/login')
+          should raise_error(Wesabe::Request::Redirect)
+      end
+      
+      it "raises Redirect which has the url in .location" do
+        begin
+          process('302', '', 'Location' => 'https://www.wesabe.com/user/login')
+        rescue Wesabe::Request::Redirect => e
+          e.location.should == 'https://www.wesabe.com/user/login'
+        end
       end
     end
     

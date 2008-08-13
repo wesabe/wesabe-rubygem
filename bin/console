@@ -1,0 +1,64 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.dirname(__FILE__) + "/../lib"
+require 'rubygems'
+require 'wesabe'
+
+require 'yaml'
+
+def usage(why = nil)
+  $stderr.puts "failed for reason: #{why}" if why
+  $stderr.puts "usage: console [url|name] [username] [password]"
+  exit(1)
+end
+
+@url = ARGV.shift if ARGV.size != 2
+@username, @password = ARGV.shift, ARGV.shift
+
+@url ||= "https://www.wesabe.com/"
+
+config = YAML.load(File.read(ENV['HOME'] + "/.wesabe.console")) rescue {}
+
+if c = config[@url]
+  @url = c["url"]
+  @username = c["username"] || @username
+  @password = c["password"] || @password
+end
+
+usage("invalid url #{@url.inspect}") unless @url =~ /^https?/
+usage("missing username") unless @username
+usage("missing password") unless @password
+
+def w
+  @w ||= begin
+    Wesabe::Request.base_url = @url
+    Wesabe.new(@username, @password)
+  end
+end
+
+w # force it to load
+
+def method_missing(s, *args, &b)
+  super unless w.respond_to?(s)
+  begin
+    w.send(s, *args, &b)
+  rescue Wesabe::Request::RequestFailed => e
+    puts e.response.body
+    raise e
+  end
+end
+
+require 'irb'
+require 'irb/completion'
+
+if File.exists? ".irbrc"
+  ENV['IRBRC'] = ".irbrc"
+end
+
+ARGV.clear
+
+puts "Starting the Wesabe API console for #{@username} at #{@url}"
+puts "(try 'accounts' or 'credentials')"
+
+IRB.start
+exit!

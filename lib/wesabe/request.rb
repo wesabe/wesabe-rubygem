@@ -55,7 +55,7 @@ class Wesabe::Request
     elsif res.code == "404"
       raise ResourceNotFound
     else
-      raise RequestFailed, url
+      raise RequestFailed, res
     end
   end
   
@@ -137,20 +137,44 @@ class Wesabe::Request
   
   class Exception < RuntimeError; end
   class ServerBrokeConnection < Exception; end
-  class Redirect < Exception; end
+  class Redirect < Exception
+    attr_reader :location
+    
+    def initialize(location)
+      @location = location
+    end
+    
+    def message
+      "You've been redirected to #{location}"
+    end
+    
+    def inspect
+      "#<#{self.class.name} Location=#{location.inspect}>"
+    end
+  end
   class Unauthorized < Exception; end
   class ResourceNotFound < Exception; end
   class RequestFailed < Exception
     attr_reader :response
     
     def initialize(response=nil)
+      @response = response
+    end
+    
+    def message
       begin
-        # try to get the error message
-        @response = Hpricot.XML(response)
-        super((@response / :error / :message).inner_text)
-      rescue Exception => e
-        super(@response = response)
+        (Hpricot.XML(response.body) / :error / :message).inner_text
+      rescue
+        response.body
       end
+    end
+    
+    def to_s
+      message
+    end
+    
+    def inspect
+      "#<#{self.class.name} Status=#{response.code} Message=#{message.inspect}>"
     end
   end
 end

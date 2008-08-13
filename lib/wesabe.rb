@@ -97,6 +97,10 @@ class Wesabe
     Request.execute({:method => :get, :username => username, :password => password}.merge(options))
   end
   
+  def inspect
+    "#<#{self.class.name} username=#{username.inspect} password=#{password.gsub(/./, '*').inspect} url=#{Wesabe::Request.base_url.inspect}>"
+  end
+  
   private
   
   def load_accounts

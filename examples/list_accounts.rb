@@ -1,19 +1,4 @@
-require File.dirname(__FILE__) + '/../lib/wesabe'
-
-begin
-  require 'readline'
-  include Readline
-rescue LoadError
-  def readline(prompt=nil)
-    print prompt if prompt
-    gets
-  end
-end
-
-username = readline("Username: ")
-password = readline("Password: ")
-
-wesabe = Wesabe.new username, password
+require File.dirname(__FILE__) + '/common'
 
 # fetch your account data
 accounts = wesabe.accounts
