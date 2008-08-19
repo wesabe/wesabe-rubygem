@@ -34,6 +34,9 @@ class Default < Thor
   # Set up standard Thortasks
   spec_task(Dir["spec/**/*_spec.rb"])
   install_task SPEC
+
+  # Spec task for CI
+  spec_task(Dir["spec/**/*_spec.rb"], :name => "cruise", :verbose => "true", :color => false)
   
   desc "make_spec", "make a gemspec file"
   def make_spec
