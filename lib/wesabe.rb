@@ -1,7 +1,13 @@
 $:.unshift(File.dirname(__FILE__))
 
-require 'net/https'
+begin
+  require 'rubygems'
+rescue LoadError
+  # no rubygems, just keep going
+end
+
 require 'hpricot'
+require 'net/https'
 require 'yaml'
 require 'time'
 

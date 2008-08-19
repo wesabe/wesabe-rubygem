@@ -1,4 +1,5 @@
 require File.dirname(__FILE__) + '/../lib/wesabe'
+require 'spec'
 
 Spec::Runner.configure do |config|
   def fixture(name)
