@@ -45,8 +45,9 @@ describe Wesabe::Credential do
     describe "with an unsuccessful response" do
       describe "because the creds were rejected by the FI" do
         before do
+          @response = stub(:response, :code => '401', :body => fixture(:new_job_creds_denied))
           @cred.stub!(:post).and_raise(
-            Wesabe::Request::RequestFailed.new(fixture(:new_job_creds_denied)))
+            Wesabe::Request::RequestFailed.new(@response))
         end
         
         it "raises with the right error message" do
@@ -58,8 +59,9 @@ describe Wesabe::Credential do
       
       describe "because the creds already have a job running" do
         before do
+          @response = stub(:response, :code => '400', :body => fixture(:new_job_existing_job))
           @cred.stub!(:post).and_raise(
-            Wesabe::Request::RequestFailed.new(fixture(:new_job_existing_job)))
+            Wesabe::Request::RequestFailed.new(@response))
         end
         
         it "raises with the right error message" do
