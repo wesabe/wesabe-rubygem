@@ -89,6 +89,12 @@ class Wesabe
     @credentials ||= load_credentials
   end
   
+  # Fetches the user's targets list from Wesabe or, if the list was already
+  # fetched, returns the cached result.
+  def targets
+    @targets ||= load_targets
+  end  
+  
   # Executes a request via POST with the initial username and password.
   # 
   # @see Wesabe::Request::execute
@@ -128,6 +134,16 @@ class Wesabe
       Credential.from_xml(element)
     end)
   end
+
+  def load_targets
+    process_targets( Hpricot::XML( get(:url => '/targets.xml') ) )
+  end
+  
+  def process_targets(xml)
+    associate((xml / :targets / :target).map do |element|
+      Target.from_xml(element)
+    end)
+  end
   
   def associate(what)
     Wesabe::Util.all_or_one(what) {|obj| obj.wesabe = self}
@@ -142,3 +158,4 @@ require 'wesabe/financial_institution'
 require 'wesabe/currency'
 require 'wesabe/credential'
 require 'wesabe/job'
+require 'wesabe/target'
