@@ -135,13 +135,13 @@ The password of an active Wesabe user.
           <pre class="lines">
 
 
-20
-21
-22
-23</pre>
+26
+27
+28
+29</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 20</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 26</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='username identifier id'>username</span><span class='comma token'>,</span> <span class='password identifier id'>password</span><span class='rparen token'>)</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='username identifier id'>username</span> <span class='assign token'>=</span> <span class='username identifier id'>username</span>
@@ -271,6 +271,22 @@ Executes a request via POST with the initial username and password.
       </td>
     </tr>
   
+    <tr>
+      <th class="signature">
+        <span class='name'><a href="#targets-instance_method" title="#targets">#targets</a></span><span class='args'></span>
+        <span class='block'></span>
+        
+      </th>
+      <td class="docstring">
+        <p>
+Fetches the user&#8217;s targets list from Wesabe or, if the list was
+already fetched, returns the cached result.
+</p>
+
+        
+      </td>
+    </tr>
+  
 </table>
   </div>
 <div class="section methoddetails instance public">
@@ -357,12 +373,12 @@ no account with that <tt>id</tt>.
           <pre class="lines">
 
 
-62
-63
-64</pre>
+68
+69
+70</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 62</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 68</span>
 
 <span class='def def kw'>def</span> <span class='account identifier id'>account</span><span class='lparen token'>(</span><span class='id identifier id'>id</span><span class='rparen token'>)</span>
   <span class='accounts identifier id'>accounts</span><span class='dot token'>.</span><span class='find identifier id'>find</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='a identifier id'>a</span><span class='bitor op'>|</span> <span class='a identifier id'>a</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span> <span class='eq op'>==</span> <span class='id identifier id'>id</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='rbrace token'>}</span>
@@ -449,12 +465,12 @@ A list of the user&#8217;s active accounts.
           <pre class="lines">
 
 
-48
-49
-50</pre>
+54
+55
+56</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 48</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 54</span>
 
 <span class='def def kw'>def</span> <span class='accounts identifier id'>accounts</span>
   <span class='@accounts ivar id'>@accounts</span> <span class='opasgn op'>||=</span> <span class='load_accounts identifier id'>load_accounts</span>
@@ -534,12 +550,12 @@ A list of the user&#8217;s active accounts.
           <pre class="lines">
 
 
-82
-83
-84</pre>
+88
+89
+90</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 82</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 88</span>
 
 <span class='def def kw'>def</span> <span class='credentials identifier id'>credentials</span>
   <span class='@credentials ivar id'>@credentials</span> <span class='opasgn op'>||=</span> <span class='load_credentials identifier id'>load_credentials</span>
@@ -595,12 +611,12 @@ Executes a request via GET with the initial username and password.
           <pre class="lines">
 
 
-96
-97
-98</pre>
+108
+109
+110</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 96</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 108</span>
 
 <span class='def def kw'>def</span> <span class='get identifier id'>get</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='rparen token'>)</span>
   <span class='Request constant id'>Request</span><span class='dot token'>.</span><span class='execute identifier id'>execute</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:method</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:get</span><span class='comma token'>,</span> <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='username identifier id'>username</span><span class='comma token'>,</span> <span class='symbol val'>:password</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='password identifier id'>password</span><span class='rbrace token'>}</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
@@ -637,12 +653,12 @@ Executes a request via GET with the initial username and password.
           <pre class="lines">
 
 
-100
-101
-102</pre>
+112
+113
+114</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 100</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 112</span>
 
 <span class='def def kw'>def</span> <span class='inspect identifier id'>inspect</span>
   <span class='dstring node'>&quot;#&lt;#{self.class.name} username=#{username.inspect} password=#{password.gsub(/./, '*').inspect} url=#{Wesabe::Request.base_url.inspect}&gt;&quot;</span>
@@ -698,16 +714,64 @@ Executes a request via POST with the initial username and password.
           <pre class="lines">
 
 
-89
-90
-91</pre>
+101
+102
+103</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 89</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 101</span>
 
 <span class='def def kw'>def</span> <span class='post identifier id'>post</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='rparen token'>)</span>
   <span class='Request constant id'>Request</span><span class='dot token'>.</span><span class='execute identifier id'>execute</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:method</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:post</span><span class='comma token'>,</span> <span class='symbol val'>:username</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='username identifier id'>username</span><span class='comma token'>,</span> <span class='symbol val'>:password</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='password identifier id'>password</span><span class='rbrace token'>}</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>targets</h3>
+</div><div id="targets-instance_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'></span>
+    <span class='name'>targets</span><span class='args'></span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section docstring">
+  <p>
+Fetches the user&#8217;s targets list from Wesabe or, if the list was
+already fetched, returns the cached result.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+94
+95
+96</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/wesabe.rb', line 94</span>
+
+<span class='def def kw'>def</span> <span class='targets identifier id'>targets</span>
+  <span class='@targets ivar id'>@targets</span> <span class='opasgn op'>||=</span> <span class='load_targets identifier id'>load_targets</span>
+<span class='end end kw'>end</span>  
 </pre>
         </td>
       </tr>
