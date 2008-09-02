@@ -1,0 +1,503 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Class: Wesabe::Upload</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section class Wesabe_Upload">
+  <h1 class="title">Class: Wesabe::Upload</h1>
+  <div class="section inheritance">
+  <ul>
+  <li><a title="Wesabe::BaseModel" href="BaseModel.html">Wesabe::BaseModel</a></li><ul><li>Wesabe::Upload</li>
+  </ul></ul>
+</div><div class="section docstring">
+  <p>
+Encapsulates an upload and allows uploading files to wesabe.com.
+</p>
+
+</div><div class="section attributes">
+  <h1>Attributes</h1>
+
+  
+    <div class="instance">
+      <h2>Instance Attributes</h2>
+      <table>
+      
+        <tr>
+          <th class="name">accounts</td>
+          <td class="readwrite">
+            [<span id='accounts-instance_method'>R</span><span id='accounts%3D-instance_method'>W</span>] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+The accounts this upload is associated with.
+</p>
+
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <th class="name">financial_institution</td>
+          <td class="readwrite">
+            [<span id='financial_institution-instance_method'>R</span><span id='financial_institution%3D-instance_method'>W</span>] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+The financial institution this upload is associated with.
+</p>
+
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <th class="name">statement</td>
+          <td class="readwrite">
+            [<span id='statement-instance_method'>R</span><span id='statement%3D-instance_method'>W</span>] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+The raw statement to post.
+</p>
+
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <th class="name">status</td>
+          <td class="readwrite">
+            [<span id='status-instance_method'>R</span><span id='status%3D-instance_method'>W</span>] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+Whether this upload succeeded or failed, or <tt>nil</tt> if it hasn&#8217;t
+started.
+</p>
+
+            
+          </td>
+        </tr>
+      
+      </table>
+    </div>
+  
+</div><div class="section constants">
+  
+</div><div class="section constructor">
+<h1>Constructor Summary</h1>
+  <div id="initialize-instance_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'></span>
+    <span class='name'>initialize</span><span class='args'></span>
+    <span class='block'>{|upload| ... }</span>
+  </tt>
+</div>
+
+</div><div class="section docstring">
+  <p>
+Initializes a <tt>Wesabe::Upload</tt> and yields itself.
+</p>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="yieldparam">
+  <h3>Yield Parameters:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt><a title="Wesabe::Upload" href="">Wesabe::Upload</a></tt>]</span>
+      
+      
+        <span class='name'>upload</span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+The newly-created upload.
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+16
+17
+18</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/upload.rb', line 16</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span>
+  <span class='yield yield kw'>yield</span> <span class='self self kw'>self</span> <span class='if if_mod kw'>if</span> <span class='block_given? fid id'>block_given?</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+</div>  <div class="section visibilitygroup public">
+    <h1>Public Visibility</h1>
+      <div class="section methodsummary instance public">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        <span class='name'><a title="#failed?" href="#failed%3F-instance_method">#failed?</a></span><span class='args'></span>
+        <span class='block'></span>
+        
+      </th>
+      <td class="docstring">
+        <p>
+Determines whether this upload failed or not.
+</p>
+
+        
+          <p class='returns'>
+            Returns: 
+              <span class='return_types'>
+                 <tt>Boolean</tt>
+              </span>
+          </p>
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        <span class='name'><a title="#successful?" href="#successful%3F-instance_method">#successful?</a></span><span class='args'></span>
+        <span class='block'></span>
+        
+      </th>
+      <td class="docstring">
+        <p>
+Determines whether this upload succeeded or not.
+</p>
+
+        
+          <p class='returns'>
+            Returns: 
+              <span class='return_types'>
+                 <tt>Boolean</tt>
+              </span>
+          </p>
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        <span class='name'><a title="#upload!" href="#upload%21-instance_method">#upload!</a></span><span class='args'></span>
+        <span class='block'></span>
+        
+      </th>
+      <td class="docstring">
+        <p>
+Uploads the statement to Wesabe, raising on problems.
+</p>
+
+        
+      </td>
+    </tr>
+  
+</table><div class="inherited">
+  
+  <div>
+    <h1>Public Instance Methods Inherited from <a title="Wesabe::BaseModel" href="BaseModel.html">Wesabe::BaseModel</a></h1>
+    <p><span class='name'><a title="get" href="BaseModel.html#get-instance_method">get</a></span>, <span class='name'><a title="post" href="BaseModel.html#post-instance_method">post</a></span></p>
+  </div>
+  
+</div>
+<div class="clear"></div>
+  </div>
+<div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>failed?</h3>
+</div><div id="failed%3F-instance_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'><tt>Boolean</tt></span>
+    <span class='name'>failed?</span><span class='args'></span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section docstring">
+  <p>
+Determines whether this upload failed or not.
+</p>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="return">
+  <h3>Returns:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>Boolean</tt>]</span>
+      
+      
+        <span class='name'></span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+<tt>false</tt> if <tt>status</tt> is <tt>&quot;processed&quot;</tt>, <tt>true</tt>
+otherwise.
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+55
+56
+57</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/upload.rb', line 55</span>
+
+<span class='def def kw'>def</span> <span class='failed? fid id'>failed?</span>
+  <span class='notop op'>!</span><span class='successful? fid id'>successful?</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>successful?</h3>
+</div><div id="successful%3F-instance_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'><tt>Boolean</tt></span>
+    <span class='name'>successful?</span><span class='args'></span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section docstring">
+  <p>
+Determines whether this upload succeeded or not.
+</p>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="return">
+  <h3>Returns:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>Boolean</tt>]</span>
+      
+      
+        <span class='name'></span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+<tt>true</tt> if <tt>status</tt> is <tt>&quot;processed&quot;</tt>, <tt>false</tt>
+otherwise.
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+47
+48
+49</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/upload.rb', line 47</span>
+
+<span class='def def kw'>def</span> <span class='successful? fid id'>successful?</span>
+  <span class='status identifier id'>status</span> <span class='eq op'>==</span> <span class='string val'>&quot;processed&quot;</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>upload!</h3>
+</div><div id="upload%21-instance_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'></span>
+    <span class='name'>upload!</span><span class='args'></span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section docstring">
+  <p>
+Uploads the statement to Wesabe, raising on problems. It can raise anything
+that is raised by <tt>Wesabe::Request#execute</tt> in addition to the list below.
+</p>
+<pre class="code">
+  <span class='begin begin kw'>begin</span>
+    <span class='upload identifier id'>upload</span><span class='dot token'>.</span><span class='upload! fid id'>upload!</span>
+  <span class='rescue rescue kw'>rescue</span> <span class='Wesabe constant id'>Wesabe</span><span class='colon2 op'>::</span><span class='Upload constant id'>Upload</span><span class='colon2 op'>::</span><span class='StatementError constant id'>StatementError</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='e identifier id'>e</span>
+    <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='string val'>&quot;The file you chose to upload couldn't be imported.&quot;</span>
+    <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;This is what Wesabe said: #{e.message}&quot;</span>
+  <span class='rescue rescue kw'>rescue</span> <span class='Wesabe constant id'>Wesabe</span><span class='colon2 op'>::</span><span class='Request constant id'>Request</span><span class='colon2 op'>::</span><span class='Exception constant id'>Exception</span>
+    <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='string val'>&quot;There was a problem communicating with Wesabe.&quot;</span>
+  <span class='end end kw'>end</span>
+</pre>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="raise">
+  <h3>Raises:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt><a title="Wesabe::Upload::StatementError" href="Upload/StatementError.html">Wesabe::Upload::StatementError</a></tt>]</span>
+      
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+When the statement cannot be processed, this is returned (error code 5).
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+<div class="see">
+  <h3>See Also:</h3>
+  <dl>
+    <dt></dt>
+    <dd>
+      <span class='desc'>
+        <tt><a title="Wesabe::Request#execute" href="Request.html#execute-instance_method">Wesabe::Request#execute</a></tt>
+      </span>
+    </dd>
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+37
+38
+39
+40
+41</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/upload.rb', line 37</span>
+
+<span class='def def kw'>def</span> <span class='upload! fid id'>upload!</span>
+  <span class='process_response identifier id'>process_response</span> <span class='do do kw'>do</span>
+    <span class='post identifier id'>post</span><span class='lparen token'>(</span><span class='symbol val'>:url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'/rest/upload/statement'</span><span class='comma token'>,</span> <span class='symbol val'>:payload</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='pack_statement identifier id'>pack_statement</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div>
+  </div>
+
+</div>
+    </div>
+  </body>
+</html>

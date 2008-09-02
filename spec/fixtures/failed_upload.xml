@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response status="failed" apiversion="1.0.30">
+  <error code="5">
+    <message>There was an error importing the statement.</message>
+  </error>
+</response>

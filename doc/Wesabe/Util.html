@@ -24,12 +24,23 @@
   
     <tr>
       <th class="signature">
-        <span class='name'><a href="#all_or_one-instance_method" title="#all_or_one">#all_or_one</a></span><span class='args'>(what, &amp;block)</span>
-        <span class='block'></span>
+        <span class='name'><a title="#all_or_one" href="#all_or_one-instance_method">#all_or_one</a></span><span class='args'>(what, &amp;block)</span>
+        <span class='block'>{|element| ... }</span>
         
       </th>
       <td class="docstring">
+        <p>
+Yields <tt>what</tt> or, if <tt>what</tt> is an array, each element of
+<tt>what</tt>.
+</p>
+
         
+          <p class='returns'>
+            Returns: 
+              <span class='return_types'>
+                 <tt>Array&lt;Object></tt>
+              </span>
+          </p>
         
       </td>
     </tr>
@@ -47,10 +58,65 @@
   <div class='section methodsignature'>
   <tt class='def'>
     <span class='visibility'>public</span>
-    <span class='return_types'></span>
+    <span class='return_types'><tt>Array&lt;Object></tt></span>
     <span class='name'>all_or_one</span><span class='args'>(what, &amp;block)</span>
-    <span class='block'></span>
+    <span class='block'>{|element| ... }</span>
   </tt>
+</div>
+
+</div><div class="section docstring">
+  <p>
+Yields <tt>what</tt> or, if <tt>what</tt> is an array, each element of
+<tt>what</tt>. It&#8217;s sort of like an argument-agnostic <tt>map</tt>.
+</p>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="yieldparam">
+  <h3>Yield Parameters:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>Object</tt>]</span>
+      
+      
+        <span class='name'>element</span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+If <tt>what</tt> is an <tt>Array</tt>, this is <tt>what</tt>. Otherwise
+it&#8217;s elements of <tt>what</tt>.
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+<div class="return">
+  <h3>Returns:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>Array&lt;Object></tt>, <tt>Object</tt>]</span>
+      
+      
+        <span class='name'></span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+If <tt>what</tt> is an array, it acts like <tt>what.map</tt>. Otherwise
+<tt>yield(what)</tt>.
+</p>
+</span>
+    </dd>
+  
+  </dl>
 </div>
 
 </div><div class="section source">
@@ -62,13 +128,13 @@
           <pre class="lines">
 
 
-4
-5
-6
-7</pre>
+12
+13
+14
+15</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe/util.rb', line 4</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/util.rb', line 12</span>
 
 <span class='def def kw'>def</span> <span class='all_or_one identifier id'>all_or_one</span><span class='lparen token'>(</span><span class='what identifier id'>what</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
   <span class='result identifier id'>result</span> <span class='assign token'>=</span> <span class='Array constant id'>Array</span><span class='lparen token'>(</span><span class='what identifier id'>what</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>

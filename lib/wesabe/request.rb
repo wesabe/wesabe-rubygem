@@ -1,6 +1,10 @@
 class Wesabe::Request
   attr_reader :url, :username, :password, :method, :proxy, :payload
   
+  DEFAULT_HEADERS = {
+    'User-Agent' => "Wesabe-RubyGem/#{Wesabe::VERSION} (Ruby #{RUBY_VERSION}; #{RUBY_PLATFORM})"
+  }
+  
   private
   
   def initialize(options=Hash.new)
@@ -17,20 +21,22 @@ class Wesabe::Request
   # @return [Net::HTTP]
   #   A connection object all ready to be used to communicate securely.
   def net
-    if proxy
-      proxy_uri = URI.parse(proxy)
-      http_klass = Net::HTTP::Proxy(proxy_uri.host, proxy_uri.port, proxy_uri.user, proxy_uri.password)
-    else
-      http_klass = Net::HTTP
-    end
-    
-    http = http_klass.new(uri.host, uri.port)
+    http = net_http_class.new(uri.host, uri.port)
     if uri.scheme == 'https'
       http.use_ssl = true
       http.verify_mode = OpenSSL::SSL::VERIFY_PEER
       http.ca_file = self.class.ca_file
     end
     http
+  end
+  
+  def net_http_class
+    if proxy
+      proxy_uri = URI.parse(proxy)
+      Net::HTTP::Proxy(proxy_uri.host, proxy_uri.port, proxy_uri.user, proxy_uri.password)
+    else
+      Net::HTTP
+    end
   end
   
   def uri
@@ -77,7 +83,7 @@ class Wesabe::Request
     @password = uri.password if uri.password
     
     # set up the request
-    req = Net::HTTP.const_get(method.to_s.capitalize).new(uri.request_uri)
+    req = Net::HTTP.const_get(method.to_s.capitalize).new(uri.request_uri, DEFAULT_HEADERS)
     req.basic_auth(username, password)
     
     net.start do |http|

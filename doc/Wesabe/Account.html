@@ -16,8 +16,13 @@
   <h1 class="title">Class: Wesabe::Account</h1>
   <div class="section inheritance">
   <ul>
-  <li><a href="BaseModel.html" title="Wesabe::BaseModel">Wesabe::BaseModel</a></li><ul><li>Wesabe::Account</li>
+  <li><a title="Wesabe::BaseModel" href="BaseModel.html">Wesabe::BaseModel</a></li><ul><li>Wesabe::Account</li>
   </ul></ul>
+</div><div class="section docstring">
+  <p>
+Encapsulates an account from Wesabe&#8217;s API.
+</p>
+
 </div><div class="section attributes">
   <h1>Attributes</h1>
 
@@ -143,7 +148,7 @@ Initializes a <tt>Wesabe::Account</tt> and yields itself.
   
     <dt>
       
-        <span class='type'>[<tt><a href="" title="Wesabe::Account">Wesabe::Account</a></tt>]</span>
+        <span class='type'>[<tt><a title="Wesabe::Account" href="">Wesabe::Account</a></tt>]</span>
       
       
         <span class='name'>account</span>
@@ -169,12 +174,12 @@ The newly-created account.
           <pre class="lines">
 
 
-17
 18
-19</pre>
+19
+20</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe/account.rb', line 17</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/account.rb', line 18</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span>
   <span class='yield yield kw'>yield</span> <span class='self self kw'>self</span> <span class='if if_mod kw'>if</span> <span class='block_given? fid id'>block_given?</span>
@@ -194,7 +199,7 @@ The newly-created account.
   
     <tr>
       <th class="signature">
-        <span class='name'><a href="#from_xml-class_method" title="from_xml">from_xml</a></span><span class='args'>(xml)</span>
+        <span class='name'><a title="from_xml" href="#from_xml-class_method">from_xml</a></span><span class='args'>(xml)</span>
         <span class='block'></span>
         
       </th>
@@ -207,7 +212,7 @@ Returns a <tt>Wesabe::Account</tt> generated from Wesabe&#8217;s API XML.
           <p class='returns'>
             Returns: 
               <span class='return_types'>
-                 <tt><a href="" title="Wesabe::Account">Wesabe::Account</a></tt>
+                 <tt><a title="Wesabe::Account" href="">Wesabe::Account</a></tt>
               </span>
           </p>
         
@@ -222,7 +227,7 @@ Returns a <tt>Wesabe::Account</tt> generated from Wesabe&#8217;s API XML.
   
     <tr>
       <th class="signature">
-        <span class='name'><a href="#inspect-instance_method" title="#inspect">#inspect</a></span><span class='args'></span>
+        <span class='name'><a title="#inspect" href="#inspect-instance_method">#inspect</a></span><span class='args'></span>
         <span class='block'></span>
         
       </th>
@@ -232,11 +237,33 @@ Returns a <tt>Wesabe::Account</tt> generated from Wesabe&#8217;s API XML.
       </td>
     </tr>
   
+    <tr>
+      <th class="signature">
+        <span class='name'><a title="#new_upload" href="#new_upload-instance_method">#new_upload</a></span><span class='args'></span>
+        <span class='block'></span>
+        
+      </th>
+      <td class="docstring">
+        <p>
+Creates a <tt>Wesabe::Upload</tt> that can be used to upload to this account.
+</p>
+
+        
+          <p class='returns'>
+            Returns: 
+              <span class='return_types'>
+                 <tt><a title="Wesabe::Upload" href="Upload.html">Wesabe::Upload</a></tt>
+              </span>
+          </p>
+        
+      </td>
+    </tr>
+  
 </table><div class="inherited">
   
   <div>
-    <h1>Public Instance Methods Inherited from <a href="BaseModel.html" title="Wesabe::BaseModel">Wesabe::BaseModel</a></h1>
-    <p><span class='name'><a href="BaseModel.html#get-instance_method" title="get">get</a></span>, <span class='name'><a href="BaseModel.html#post-instance_method" title="post">post</a></span></p>
+    <h1>Public Instance Methods Inherited from <a title="Wesabe::BaseModel" href="BaseModel.html">Wesabe::BaseModel</a></h1>
+    <p><span class='name'><a title="get" href="BaseModel.html#get-instance_method">get</a></span>, <span class='name'><a title="post" href="BaseModel.html#post-instance_method">post</a></span></p>
   </div>
   
 </div>
@@ -253,7 +280,7 @@ Returns a <tt>Wesabe::Account</tt> generated from Wesabe&#8217;s API XML.
   <div class='section methodsignature'>
   <tt class='def'>
     <span class='visibility'>public</span>
-    <span class='return_types'><tt><a href="" title="Wesabe::Account">Wesabe::Account</a></tt></span>
+    <span class='return_types'><tt><a title="Wesabe::Account" href="">Wesabe::Account</a></tt></span>
     <span class='name'>from_xml</span><span class='args'>(xml)</span>
     <span class='block'></span>
   </tt>
@@ -294,7 +321,7 @@ The &lt;account&gt; element from the API.
   
     <dt>
       
-        <span class='type'>[<tt><a href="" title="Wesabe::Account">Wesabe::Account</a></tt>]</span>
+        <span class='type'>[<tt><a title="Wesabe::Account" href="">Wesabe::Account</a></tt>]</span>
       
       
         <span class='name'></span>
@@ -320,20 +347,20 @@ The newly-created account populated by <tt>xml</tt>.
           <pre class="lines">
 
 
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38</pre>
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe/account.rb', line 28</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/account.rb', line 41</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='from_xml identifier id'>from_xml</span><span class='lparen token'>(</span><span class='xml identifier id'>xml</span><span class='rparen token'>)</span>
   <span class='new identifier id'>new</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='account identifier id'>account</span><span class='bitor op'>|</span>
@@ -381,15 +408,95 @@ The newly-created account populated by <tt>xml</tt>.
           <pre class="lines">
 
 
-40
-41
-42</pre>
+53
+54
+55</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/wesabe/account.rb', line 40</span>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/account.rb', line 53</span>
 
 <span class='def def kw'>def</span> <span class='inspect identifier id'>inspect</span>
   <span class='inspect_these identifier id'>inspect_these</span> <span class='symbol val'>:id</span><span class='comma token'>,</span> <span class='symbol val'>:name</span><span class='comma token'>,</span> <span class='symbol val'>:balance</span><span class='comma token'>,</span> <span class='symbol val'>:financial_institution</span><span class='comma token'>,</span> <span class='symbol val'>:currency</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>new_upload</h3>
+</div><div id="new_upload-instance_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'><tt><a title="Wesabe::Upload" href="Upload.html">Wesabe::Upload</a></tt></span>
+    <span class='name'>new_upload</span><span class='args'></span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section docstring">
+  <p>
+Creates a <tt>Wesabe::Upload</tt> that can be used to upload to this account.
+</p>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="return">
+  <h3>Returns:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt><a title="Wesabe::Upload" href="Upload.html">Wesabe::Upload</a></tt>]</span>
+      
+      
+        <span class='name'></span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+The newly-created upload, ready to be used to upload a statement.
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+26
+27
+28
+29
+30
+31
+32</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/wesabe/account.rb', line 26</span>
+
+<span class='def def kw'>def</span> <span class='new_upload identifier id'>new_upload</span>
+  <span class='Wesabe constant id'>Wesabe</span><span class='colon2 op'>::</span><span class='Upload constant id'>Upload</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='upload identifier id'>upload</span><span class='bitor op'>|</span>
+    <span class='upload identifier id'>upload</span><span class='dot token'>.</span><span class='accounts identifier id'>accounts</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='self self kw'>self</span><span class='rbrack token'>]</span>
+    <span class='upload identifier id'>upload</span><span class='dot token'>.</span><span class='financial_institution identifier id'>financial_institution</span> <span class='assign token'>=</span> <span class='financial_institution identifier id'>financial_institution</span>
+    <span class='associate identifier id'>associate</span> <span class='upload identifier id'>upload</span>
+  <span class='end end kw'>end</span>
 <span class='end end kw'>end</span>
 </pre>
         </td>

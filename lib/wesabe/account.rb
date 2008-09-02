@@ -1,3 +1,4 @@
+# Encapsulates an account from Wesabe's API.
 class Wesabe::Account < Wesabe::BaseModel
   # The user-scoped account id, used to identify the account in URLs.
   attr_accessor :id
@@ -16,6 +17,18 @@ class Wesabe::Account < Wesabe::BaseModel
   #   The newly-created account.
   def initialize
     yield self if block_given?
+  end
+  
+  # Creates a +Wesabe::Upload+ that can be used to upload to this account.
+  # 
+  # @return [Wesabe::Upload]
+  #   The newly-created upload, ready to be used to upload a statement.
+  def new_upload
+    Wesabe::Upload.new do |upload|
+      upload.accounts = [self]
+      upload.financial_institution = financial_institution
+      associate upload
+    end
   end
   
   # Returns a +Wesabe::Account+ generated from Wesabe's API XML.

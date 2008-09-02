@@ -15,6 +15,8 @@ require 'time'
 class Wesabe
   attr_accessor :username, :password
   
+  VERSION = "0.0.1"
+  
   # Initializes access to the Wesabe API with a certain user. All requests 
   # will be made in the context of this user.
   # 
@@ -154,6 +156,7 @@ require 'wesabe/util'
 require 'wesabe/request'
 require 'wesabe/base_model'
 require 'wesabe/account'
+require 'wesabe/upload'
 require 'wesabe/financial_institution'
 require 'wesabe/currency'
 require 'wesabe/credential'
