@@ -58,7 +58,7 @@ end
 ARGV.clear
 
 puts "Starting the Wesabe API console for #{@username} at #{@url}"
-puts "(try 'accounts' or 'credentials')"
+puts "(try 'accounts', 'credentials', or 'targets')"
 
 IRB.start
 exit!
