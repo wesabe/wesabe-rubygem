@@ -6,6 +6,8 @@ class Wesabe::Account < Wesabe::BaseModel
   attr_accessor :number
   # The user-provided account name ("Bank of America - Checking")
   attr_accessor :name
+  # The account type ("Credit Card", "Savings" ...)
+  attr_accessor :type
   # This account's balance or +nil+ if the account is a cash account.
   attr_accessor :balance
   # This account's currency.
@@ -44,6 +46,7 @@ class Wesabe::Account < Wesabe::BaseModel
     new do |account|
       account.id = xml.at("id").inner_text.to_i
       account.name = xml.at("name").inner_text
+      account.type = xml.at("account-type").inner_text
       account.number = xml.at("account-number").inner_text.to_i if xml.at("account-number")
       balance = xml.at("current-balance")
       account.balance = balance.inner_text.to_f if balance
@@ -54,6 +57,6 @@ class Wesabe::Account < Wesabe::BaseModel
   end
   
   def inspect
-    inspect_these :id, :number, :name, :balance, :financial_institution, :currency
+    inspect_these :id, :number, :type, :name, :balance, :financial_institution, :currency
   end
 end
