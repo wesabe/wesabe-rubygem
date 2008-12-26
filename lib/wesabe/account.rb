@@ -2,6 +2,8 @@
 class Wesabe::Account < Wesabe::BaseModel
   # The user-scoped account id, used to identify the account in URLs.
   attr_accessor :id
+  # The application-scoped account id, used in upload
+  attr_accessor :number
   # The user-provided account name ("Bank of America - Checking")
   attr_accessor :name
   # This account's balance or +nil+ if the account is a cash account.
@@ -42,6 +44,7 @@ class Wesabe::Account < Wesabe::BaseModel
     new do |account|
       account.id = xml.at("id").inner_text.to_i
       account.name = xml.at("name").inner_text
+      account.number = xml.at("account-number").inner_text.to_i if xml.at("account-number")
       balance = xml.at("current-balance")
       account.balance = balance.inner_text.to_f if balance
       account.currency = Wesabe::Currency.from_xml(xml.at("currency"))
@@ -51,6 +54,6 @@ class Wesabe::Account < Wesabe::BaseModel
   end
   
   def inspect
-    inspect_these :id, :name, :balance, :financial_institution, :currency
+    inspect_these :id, :number, :name, :balance, :financial_institution, :currency
   end
 end
