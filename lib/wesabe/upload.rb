@@ -67,7 +67,7 @@ class Wesabe::Upload < Wesabe::BaseModel
     
     Hpricot.build do
       tag! :upload do
-        tag! :statement, :wesabe_id => upload.financial_institution.id do
+        tag! :statement, :acctid => upload.accounts[0].number, :wesabe_id => upload.financial_institution.id do
           text! upload.statement
         end
       end
