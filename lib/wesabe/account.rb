@@ -47,7 +47,7 @@ class Wesabe::Account < Wesabe::BaseModel
       account.id = xml.at("id").inner_text.to_i
       account.name = xml.at("name").inner_text
       account.type = xml.at("account-type").inner_text
-      account.number = xml.at("account-number").inner_text.to_i if xml.at("account-number")
+      account.number = xml.at("account-number").inner_text if xml.at("account-number")
       balance = xml.at("current-balance")
       account.balance = balance.inner_text.to_f if balance
       account.currency = Wesabe::Currency.from_xml(xml.at("currency"))
