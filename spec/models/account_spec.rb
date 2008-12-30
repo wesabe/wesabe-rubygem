@@ -30,6 +30,8 @@ describe Wesabe::Account do
       it "returns an Account with its properties set" do
         @account.id.should == 1
         @account.name.should == "American Express Card - Blue"
+	@account.type == "Credit Card"
+	@account.number == "5000"
         @account.currency.should be_an_instance_of(Wesabe::Currency)
         @account.financial_institution.should be_an_instance_of(Wesabe::FinancialInstitution)
         @account.balance.should == -393.42
