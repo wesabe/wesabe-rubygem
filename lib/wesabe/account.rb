@@ -14,17 +14,17 @@ class Wesabe::Account < Wesabe::BaseModel
   attr_accessor :currency
   # The financial institution this account is held at.
   attr_accessor :financial_institution
-  
+
   # Initializes a +Wesabe::Account+ and yields itself.
-  # 
+  #
   # @yieldparam [Wesabe::Account] account
   #   The newly-created account.
   def initialize
     yield self if block_given?
   end
-  
+
   # Creates a +Wesabe::Upload+ that can be used to upload to this account.
-  # 
+  #
   # @return [Wesabe::Upload]
   #   The newly-created upload, ready to be used to upload a statement.
   def new_upload
@@ -34,12 +34,12 @@ class Wesabe::Account < Wesabe::BaseModel
       associate upload
     end
   end
-  
+
   # Returns a +Wesabe::Account+ generated from Wesabe's API XML.
-  # 
+  #
   # @param [Hpricot::Element] xml
   #   The <account> element from the API.
-  # 
+  #
   # @return [Wesabe::Account]
   #   The newly-created account populated by +xml+.
   def self.from_xml(xml)
@@ -55,7 +55,7 @@ class Wesabe::Account < Wesabe::BaseModel
       account.financial_institution = Wesabe::FinancialInstitution.from_xml(fi) if fi
     end
   end
-  
+
   def inspect
     inspect_these :id, :number, :type, :name, :balance, :financial_institution, :currency
   end

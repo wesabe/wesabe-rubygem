@@ -9,7 +9,7 @@ describe Wesabe::FinancialInstitution do
       fi.login_url.should == "https://www99.americanexpress.com/myca/ofxdl/us/action?request_type=authreg_ofxdownload&Face=en_US"
       fi.homepage_url.should == "http://www.americanexpress.com"
     end
-    
+
     describe "when the xml is abbreviated" do
       it "returns id and name only" do
         fi = account(0).financial_institution
