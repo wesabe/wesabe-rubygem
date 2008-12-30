@@ -103,7 +103,7 @@ describe Wesabe::Upload do
   describe "pack_statement" do
     it "wraps the statement in <upload> and <statement> tags" do
       @upload.statement = "<OFX></OFX>"
-      @upload.send(:pack_statement).should == %{<upload><statement wesabe_id="us-003383">&lt;OFX&gt;&lt;/OFX&gt;</statement></upload>}
+      @upload.send(:pack_statement).should == %{<upload><statement accttype="Credit Card" acctid="5000" wesabe_id="us-003383">&lt;OFX&gt;&lt;/OFX&gt;</statement></upload>}
     end
   end
 end
