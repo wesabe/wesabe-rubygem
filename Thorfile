@@ -3,7 +3,7 @@ require 'rubygems/specification'
 require 'thor/tasks'
 
 GEM = "wesabe"
-GEM_VERSION = "0.0.1"
+GEM_VERSION = "0.0.2"
 AUTHOR = "Brian Donovan"
 EMAIL = "brian@wesabe.com"
 HOMEPAGE = "https://www.wesabe.com/page/api"
