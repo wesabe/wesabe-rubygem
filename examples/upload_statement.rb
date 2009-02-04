@@ -1,8 +1,12 @@
+def usage
+  $stderr.puts "usage: #{$0} FILE1 [FILE2 [FILE3 ...]]"
+  exit(1)
+end
+
+usage if ARGV.empty?
+
 ARGV.each do |file|
-  if !file || !File.exist?(file)
-    $stderr.puts "usage: #{$0} FILE1 [FILE2 [FILE3 ...]]"
-    exit(1)
-  end
+  usage if !file || !File.exist?(file)
 end
 
 require File.dirname(__FILE__) + '/common'
